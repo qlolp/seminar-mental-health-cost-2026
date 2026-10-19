@@ -1,0 +1,656 @@
+<title>Сколько стоит достойная жизнь</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>
+:root{
+  /* Длинное чтение: одна колонка текста ~68 знаков, графики и таблицы шире. */
+  --paper: #f8f9f7; --ink: #1c2422; --mute: #5e6b67; --rule: #d9dfdc; --grid: #e4e9e6; --panel: #eef2ef;
+  --accent: #1f5560;
+  --c1: #46637d; --c2: #3a7c5b; --c3: #b8c5ce; --c4: #a8761a; --c5: #a5463a;
+  --f-text: 'Literata', 'PT Serif', Georgia, serif;
+  --f-ui: 'Golos Text', 'Segoe UI', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper: #121615; --ink: #e2e8e5; --mute: #9aa7a2; --rule: #2e3835; --grid: #29322f; --panel: #1a201e;
+  --accent: #8cc3cc;
+  --c1: #8db0cd; --c2: #7cc29c; --c3: #4b5b66; --c4: #dfb25c; --c5: #e38c7d;
+  color-scheme: dark;
+}}
+:root[data-theme="dark"]{
+  --paper: #121615; --ink: #e2e8e5; --mute: #9aa7a2; --rule: #2e3835; --grid: #29322f; --panel: #1a201e;
+  --accent: #8cc3cc;
+  --c1: #8db0cd; --c2: #7cc29c; --c3: #4b5b66; --c4: #dfb25c; --c5: #e38c7d;
+  color-scheme: dark;
+}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:18px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+.k-ink{fill:var(--ink)} .k-mute{fill:var(--mute)} .k-grid{stroke:var(--grid)} .k-gridf{fill:var(--rule)}
+.k-inkline{stroke:var(--ink)}
+.s1{fill:var(--c1)} .s2{fill:var(--c2)} .s3{fill:var(--c3)} .s4{fill:var(--c4)} .s5{fill:var(--c5)}
+.s1-line{stroke:var(--c1);fill:none} .s2-line{stroke:var(--c2);fill:none} .s4-line{stroke:var(--c4);fill:none} .s5-line{stroke:var(--c5);fill:none}
+.s1-text{fill:var(--c1)} .s2-text{fill:var(--c2)} .s4-text{fill:var(--c4)} .s5-text{fill:var(--c5)}
+figure svg{width:100%;height:auto;display:block}
+.eyebrow{font-family:var(--f-ui);font-size:.72em;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 .4em}
+h2,h3{font-family:var(--f-text);text-wrap:balance;color:var(--ink)}
+h2{font-weight:600;letter-spacing:-.01em;line-height:1.15}
+h3{font-weight:600;line-height:1.25}
+.lede{font-size:1.12em;line-height:1.55;color:var(--ink);font-style:italic}
+.dag{color:var(--c4);font-weight:600}
+a.ref{font-family:var(--f-ui);font-size:.72em;color:var(--mute);text-decoration:none;vertical-align:.35em;white-space:nowrap}
+a.ref:hover{color:var(--accent)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-family:var(--f-ui);font-size:.82em;line-height:1.4;font-variant-numeric:tabular-nums}
+caption{text-align:left;font-weight:600;padding-bottom:.5em;caption-side:top}
+th{text-align:left;font-weight:600;border-bottom:1.5px solid var(--ink);background:var(--panel)}
+th,td{padding:.5em .65em;vertical-align:top;border-bottom:1px solid var(--rule)}
+td.n,th.n{text-align:right;white-space:nowrap}
+figure{margin:1.6em 0}
+figcaption{font-family:var(--f-ui);font-size:.78em;color:var(--mute);margin-top:.5em;line-height:1.4}
+.note{background:var(--panel);border-left:3px solid var(--accent);padding:.9em 1.1em;margin:1.4em 0}
+.note.warn{border-left-color:var(--c4)}
+.note p:last-child,.note ul:last-child{margin-bottom:0}
+.note-t{font-family:var(--f-ui);font-size:.74em;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:600;margin:0 0 .4em}
+.take{border-top:1px solid var(--rule);padding-top:.7em;margin-top:1em}
+.take b{font-family:var(--f-ui);font-size:.82em;letter-spacing:.06em;text-transform:uppercase;color:var(--c2)}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.9em;margin:1.2em 0}
+.kpi div{border-top:2px solid var(--accent);padding-top:.5em}
+.kpi b{display:block;font-family:var(--f-text);font-size:1.7em;font-weight:600;color:var(--accent);line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{display:block;font-family:var(--f-ui);font-size:.74em;color:var(--mute);line-height:1.35;margin-top:.35em}
+.theses li{margin-bottom:.6em}
+.coda{font-size:1.08em;font-style:italic;border-top:1px solid var(--rule);padding-top:1em;margin-top:2em}
+.src{font-family:var(--f-ui);font-size:.8em;line-height:1.45}
+.src li{margin-bottom:.45em;overflow-wrap:anywhere}
+code{font-family:'DejaVu Sans Mono',ui-monospace,monospace;font-size:.85em;background:var(--panel);padding:0 .25em}
+
+a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:44rem;margin:0 auto;padding-block:3rem 5rem}
+p{margin:0 0 1em} ul,ol{padding-left:1.3em;margin:0 0 1.2em} li{margin-bottom:.35em}
+h2{font-size:clamp(1.7rem,4.5vw,2.4rem);margin:0 0 .6em} h3{font-size:1.2rem;margin:2em 0 .5em}
+section{padding-top:3.5rem;margin-top:3.5rem;border-top:1px solid var(--rule)}
+figure,.tbl{margin-left:auto;margin-right:auto}
+@media (min-width:62rem){figure,.tbl{width:min(58rem,calc(100vw - 4rem));margin-left:50%;transform:translateX(-50%)}}
+header.hero{padding-block:2rem 1rem}
+header.hero .k{font-family:var(--f-ui);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+header.hero h1{font-family:var(--f-text);font-weight:600;font-size:clamp(2.3rem,7vw,3.6rem);line-height:1.04;letter-spacing:-.02em;margin:.5em 0 .4em;text-wrap:balance}
+header.hero p{font-size:1.15rem;color:var(--mute);margin:0 0 1em}
+header.hero .meta{font-family:var(--f-ui);font-size:.8rem;color:var(--mute)}
+nav.toc{font-family:var(--f-ui);font-size:.9rem;margin-top:2rem;border-top:1px solid var(--rule);padding-top:1rem}
+nav.toc ol{list-style:none;padding:0;margin:0;display:grid;gap:.15rem}
+nav.toc a{display:flex;gap:.8em;padding:.35em 0;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--grid)}
+nav.toc a:hover{color:var(--accent)}
+nav.toc span{flex:0 0 9.5em;color:var(--mute);font-size:.78em;letter-spacing:.08em;text-transform:uppercase;padding-top:.15em}
+@media (max-width:40rem){body{font-size:17px} .kpi{grid-template-columns:repeat(2,minmax(0,1fr))} nav.toc span{flex-basis:7.5em}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+<div class="wrap">
+<header class="hero">
+<div class="k">Семинар «Пространство Новых Идей 2.0» · Минтруд России</div>
+<h1>Сколько стоит достойная жизнь</h1>
+<p>Реформа психоневрологических интернатов: сколько стоит месяц жизни человека в интернате и в квартире, что показал мировой опыт и что можно сделать в российском регионе на имеющиеся деньги.</p>
+<div class="meta">Редакция 4 · октябрь 2026 · 53 источника · <a href="https://github.com/qlolp/seminar-mental-health-cost-2026">исходники и PDF</a></div>
+<nav class="toc" aria-label="Содержание"><ol><li><a href="#preface"><span>Предисловие</span> О чём этот доклад и как его читать</a></li><li><a href="#summary"><span>Резюме</span> Главное на двух страницах</a></li><li><a href="#part-1"><span>Часть первая</span> Люди за цифрой</a></li><li><a href="#part-2"><span>Часть вторая</span> Цена месяца</a></li><li><a href="#part-3"><span>Часть третья</span> Что знает наука</a></li><li><a href="#part-4"><span>Часть четвёртая</span> Восемь стран</a></li><li><a href="#part-5"><span>Часть пятая</span> Дорогие уроки</a></li><li><a href="#part-6"><span>Часть шестая</span> Россия: десять лет реформы</a></li><li><a href="#part-7"><span>Часть седьмая</span> Калькулятор: сколько заботы на миллион</a></li><li><a href="#part-8"><span>Часть восьмая</span> План для региона</a></li><li><a href="#appx-a"><span>Приложение А</span> Словарь</a></li><li><a href="#appx-b"><span>Приложение Б</span> Журнал исправлений</a></li><li><a href="#appx-v"><span>Приложение В</span> Что не удалось подтвердить</a></li><li><a href="#appx-g"><span>Приложение Г</span> Источники</a></li><li><a href="#appx-d"><span>Приложение Д</span> Как повторить расчёты</a></li></ol></nav>
+</header>
+
+
+<section class="front" id="preface">
+<p class="eyebrow">Предисловие</p>
+<h2>О чём этот доклад и как его читать</h2>
+
+<p class="lede">В России около ста сорока тысяч человек живут в психоневрологических интернатах. Для большинства из них интернат — не больничная палата, куда ложатся на время, а дом на десятилетия: с общим расписанием, общей столовой, с чужим человеком в роли опекуна. Этот доклад о том, сколько стоит такая жизнь, сколько стоит другая и что можно купить на те деньги, которые у страны уже есть.</p>
+
+<p>Он обращён к тем, кто принимает решения: к директорам интернатов и организаций социального обслуживания и к региональным министрам, которые подписывают им бюджеты. Поэтому в нём много цифр. Но цифры здесь служат людям, а не наоборот: за каждой строкой сметы стоит чей-то распорядок дня, чьё-то право выйти за ворота, чья-то возможность самому решить, что приготовить на ужин.</p>
+
+<p>Доклад отвечает на три вопроса. Во что обходится месяц жизни человека в интернате и в квартире с сопровождением. Что известно из мирового опыта, причём не только об успехах, но и о дорогих провалах. И что из этого можно сделать в российском регионе сейчас, без ожидания новых законов и новых денег.</p>
+
+<h3>Как отмечены цифры</h3>
+<div class="tbl"><table>
+<tr><th style="width:24%">Метка</th><th>Что она означает</th></tr>
+<tr><td>Цифра в фигурных скобках, например <a class="ref" href="#src-1">[1]</a></td><td>Номер источника в приложении Г. Цифра проверена в этой редакции по публикации или первоисточнику.</td></tr>
+<tr><td><span class="dag">†</span></td><td>Цифра опирается на вторичный источник или не была перепроверена по первоисточнику. Перед публичным выступлением её стоит сверить.</td></tr>
+<tr><td>«оценка автора»</td><td>Расчёт на основе проверенных данных и явно названных допущений. Скрипт <code>calc.py</code> в репозитории пересчитывает всё заново.</td></tr>
+</table></div>
+
+<aside class="note warn"><p class="note-t">Что изменилось в этой редакции</p>
+<p>Первая версия доклада утверждала, что место в интернате стоит 8–24 тыс. ₽ в месяц, а сопровождаемое проживание — 2–6 тыс. ₽, и делала вывод, что второе дешевле вчетверо. Первоисточник — презентация Института социальной политики НИУ ВШЭ — говорит другое. Эти диапазоны описывают <em>капитальные</em> затраты: стоимость строительства или покупки жилья, разложенную на месяцы амортизации. Текущие расходы на одного человека в месяц, включая его личные траты, ВШЭ оценила в 44,8 тыс. ₽ для интерната и 52,9 тыс. ₽ для проектов сопровождаемого проживания <a class="ref" href="#src-1">[1]</a>.</p>
+<p>Из этого следует иной, более трудный, но и более прочный вывод: реформа не обещает экономии, она обещает другое качество жизни за сопоставимые деньги. Весь доклад перестроен вокруг этой мысли. Полный список исправлений приведён в приложении Б.</p></aside>
+</section>
+
+<section class="front" id="summary">
+<p class="eyebrow">Резюме</p>
+<h2>Главное на двух страницах</h2>
+
+<h3>Для министра</h3>
+<ol class="theses">
+<li><b>В ПНИ живёт около 139 тысяч человек в 466 учреждениях</b> (2024). Средний интернат рассчитан на 289 мест, заполнен на 98,6 %, и в очереди стоят ещё около 2,8 тысячи человек <a class="ref" href="#src-3">[3]</a>. Минтруд, считающий также отделения внутри других организаций, называет цифру больше 174 тысяч <a class="ref" href="#src-4">[4]</a>.</li>
+<li><b>Месяц в интернате и месяц в квартире с сопровождением стоят близко:</b> 44,8 и 52,9 тыс. ₽ на человека; в Москве сопровождаемое проживание обходится в 111,9 тыс. ₽ <a class="ref" href="#src-1">[1]</a>. Зато индекс качества жизни по критериям ВОЗ — 76,9 балла против 56,9 <a class="ref" href="#src-1">[1, 2]</a>.</li>
+<li><b>Мировая наука не подтверждает лозунг «деинституционализация всегда дешевле».</b> Европейское исследование DECLOC пришло к выводу, что жизнь в сообществе не дороже учреждения при сопоставимых потребностях и сопоставимом качестве, а дешёвые учреждения почти всегда дают низкое качество <a class="ref" href="#src-24">[24]</a>. Систематический обзор 2019 года нашёл лишь два сопоставимых исследования, и их выводы противоположны <a class="ref" href="#src-25">[25]</a>.</li>
+<li><b>Переход стоит денег.</b> Несколько лет приходится оплачивать и старые места, и новые квартиры. Без переходного фонда реформы буксуют или откатываются <a class="ref" href="#src-24">[24]</a>.</li>
+<li><b>Охват пока мал.</b> По данным Минтруда, в 2025 году сопровождаемым проживанием пользовались около 8 тысяч человек с инвалидностью <a class="ref" href="#src-4">[4]</a>. Независимые аналитики насчитывают на постоянном проживании вне интерната не более 1,8 тысячи: большинство остальных учатся в тренировочных квартирах, часто на территории тех же интернатов <a class="ref" href="#src-3">[3, 6]</a>. Потенциал, по оценке Минтруда, — до 45 % жителей, то есть около 63 тысяч человек.</li>
+<li><b>Самая высокая стена — правовая.</b> 74 % жителей ПНИ признаны недееспособными, и их опекуном, как правило, становится сам интернат <a class="ref" href="#src-3">[3]</a>. Законопроект о распределённой опеке Госдума отклонила в феврале 2025 года <a class="ref" href="#src-15">[15]</a>.</li>
+<li><b>Есть риск реформы только на вывеске.</b> Как минимум в 41 регионе интернаты переименованы, а федеральные средства с 2025 года идут в том числе на строительство и реновацию стационарных учреждений <a class="ref" href="#src-3">[3, 4]</a>. Мерилом успеха остаётся одно: сколько людей живёт за пределами интерната и в каких группах.</li>
+</ol>
+
+<h3>Для директора</h3>
+<ol class="theses">
+<li><b>Начните с обследования своих жителей.</b> В Нижегородской области из 350 обследованных у каждого пятого потребность в сопровождении не превышала двенадцати часов в неделю <a class="ref" href="#src-8">[8]</a>. Какова эта доля в вашем интернате, не знает никто, пока её не измерят.</li>
+<li><b>Считайте в часах, а не только в местах.</b> На миллион рублей в год можно оплатить около двух мест в интернате или от 1 700 до 2 900 часов сопровождения (часть 7).</li>
+<li><b>Квартира дешевле места только при лёгкой потребности.</b> Человеку, которому нужен кто-то рядом круглые сутки, сопровождаемое проживание обойдётся не дешевле интерната. Планируйте по когортам, а не по принципу «всех в квартиры».</li>
+<li><b>Размер группы и есть качество.</b> Минтруд рекомендует три-четыре человека в квартире, а на практике в среднем живут семь-восемь <a class="ref" href="#src-6">[6]</a>.</li>
+<li><b>Открытость защищает лучше любой проверки.</b> Самые громкие скандалы в истории этой темы случились в закрытых учреждениях, куда никто не заглядывал со стороны.</li>
+<li><b>Не урезайте лёгкую помощь.</b> Скандинавский опыт показывает: экономия на дневной занятости, бытовой поддержке и профилактике возвращает людей в дорогие учреждения (часть 5).</li>
+</ol>
+</section>
+
+
+<section class="part" id="part-1">
+<p class="eyebrow">Часть первая</p>
+<h2>Люди за цифрой</h2>
+<p class="lede">Сто тридцать девять тысяч — население небольшого областного центра. Если собрать всех жителей российских интернатов в одном месте, получился бы город размером с Майкоп, в котором три четверти горожан лишены права подписывать документы, а у большинства один и тот же опекун — директор учреждения.</p>
+
+<h3>Кто живёт в ПНИ</h3>
+<div class="kpi">
+<div><b>139 тыс.</b><span>человек в 466 ПНИ, 2024 год; пик — 161 тыс. в 2018-м <a class="ref" href="#src-3">[3]</a></span></div>
+<div><b>74 %</b><span>признаны недееспособными; опекун — как правило, интернат <a class="ref" href="#src-3">[3]</a></span></div>
+<div><b>65 %</b><span>старше 45 лет при 43 % в среднем по стране <a class="ref" href="#src-3">[3]</a></span></div>
+<div><b>11 %</b><span>прикованы к постели <a class="ref" href="#src-3">[3]</a></span></div>
+</div>
+
+<p>Цифры о числе жителей расходятся, и расхождение само по себе поучительно. Проект «Если быть точным» по ведомственной статистике насчитал в 2024 году 139 тысяч человек в 466 интернатах для взрослых <a class="ref" href="#src-3">[3]</a>. Пресс-служба Минтруда сообщила «Ведомостям», что во всех отделениях для людей с психическими расстройствами, включая отделения внутри других организаций, живёт более 174 тысяч человек и что за 2022–2025 годы это число почти не изменилось <a class="ref" href="#src-4">[4]</a>. За те же годы число самих ПНИ снизилось с 536 до 466, но и аналитики, и представители НКО объясняют это прежде всего объединением и переименованием учреждений, а не их закрытием <a class="ref" href="#src-4">[4]</a>. Резкое падение численности жителей на 26 тысяч в 2023 году авторы исследования объяснить не смогли и допускают, что сменился формат отчётности <a class="ref" href="#src-3">[3]</a>.</p>
+
+<p>Портрет этого «города» складывается из нескольких штрихов. Почти две трети жителей имеют вторую группу инвалидности, около трети — первую. Две трети старше сорока пяти лет. Каждый десятый не встаёт с постели. Интернат в среднем рассчитан на 289 мест, хотя эксперты называют разумным размером двадцать–пятьдесят; самые крупные учреждения доходили до тысячи <a class="ref" href="#src-3">[3]</a>. Места заполнены почти полностью, и в очереди стоят ещё несколько тысяч человек <a class="ref" href="#src-3">[3]</a>.</p>
+
+<p>Важно помнить, что ПНИ — не больница. Больница лечит и выписывает; интернат организует жизнь на годы: кормит, одевает, помогает в быту, решает, когда гулять и когда спать. Поэтому разговор о деньгах здесь — это разговор о социальном обслуживании, а не о психиатрии, и мировые сравнения уместно вести в рамках того, что ОЭСР называет долговременным уходом.</p>
+
+<h3>Что такое сопровождаемое проживание</h3>
+<p>Сопровождаемое проживание — это жизнь в обычном жилье, одному или в небольшой группе, с помощью, которая подстраивается под человека: от нескольких часов в неделю до постоянного присутствия рядом. Федеральный закон от 28 апреля 2023 года № 137-ФЗ ввёл это понятие в закон «О социальной защите инвалидов» (статья 9.1); норма действует с 1 сентября 2023 года и касается инвалидов старше восемнадцати лет, которые не могут жить самостоятельно без посторонней помощи <a class="ref" href="#src-11">[11]</a>. Правила организации утвердило постановление Правительства № 910 от 3 июля 2024 года <a class="ref" href="#src-12">[12]</a>, методические рекомендации — приказ Минтруда № 85 от 25 февраля 2025 года <a class="ref" href="#src-13">[13]</a>.</p>
+
+<aside class="note"><p class="note-t">Две формы, которые легко спутать</p>
+<p><b>Учебное</b> сопровождаемое проживание — временная школа самостоятельности, чаще всего в квартире на территории интерната. <b>Постоянное</b> — жизнь за его пределами. Минтруд учитывает обе формы вместе; «Если быть точным» выделяет постоянную и насчитывает не более 1,8 тысячи человек в 214 квартирах <a class="ref" href="#src-3">[3, 6]</a>. На начало 2024 года 74 % участников программы жили в учебных квартирах <a class="ref" href="#src-6">[6]</a>.</p></aside>
+
+<h3>Четыре единицы заботы</h3>
+<p>Споры об «объёме услуг» часто заходят в тупик потому, что стороны меряют разными мерками. Министр думает о местах, директор — о ставках, семья — о часах, которые кто-то проведёт рядом с её сыном. У каждой единицы своя цена и своё назначение.</p>
+<div class="tbl"><table>
+<caption>Таблица 1.1. Единицы заботы</caption>
+<tr><th>Единица</th><th>Что покупают</th><th>Кому подходит</th><th>Ориентир цены</th></tr>
+<tr><td><b>Койка</b></td><td>Лечение и наблюдение в остром состоянии</td><td>При обострении, на недели, а не на годы</td><td>Региональные прейскуранты психиатрических больниц<span class="dag">†</span></td></tr>
+<tr><td><b>Место</b></td><td>Проживание, питание и уход круглые сутки</td><td>Тем, кто полностью зависит от помощи и не имеет поддержки</td><td>ПНИ: 44,8 тыс. ₽ в месяц <a class="ref" href="#src-1">[1]</a>; оценки 2021–2022 годов — 50–120 тыс. ₽ <a class="ref" href="#src-7">[7]</a></td></tr>
+<tr><td><b>Час</b></td><td>Помощь по дому, сопровождение, занятость</td><td>Тем, кто живёт дома или в квартире</td><td>Москва, 2026: час социального обслуживания на дому — 507 ₽ (основные услуги) и 337 ₽ (дополнительные) <a class="ref" href="#src-22">[22]</a></td></tr>
+<tr><td><b>Квартира с сопровождением</b></td><td>Своё жильё и помощь по индивидуальному плану</td><td>Части жителей ПНИ после обучения</td><td>52,9 тыс. ₽ в месяц в среднем; в столице — 111,9 <a class="ref" href="#src-1">[1]</a></td></tr>
+</table></div>
+
+<h3>Кто и как платит за место</h3>
+<p>Житель интерната вносит плату за стационарное обслуживание. По статье 32 Федерального закона № 442-ФЗ её размер не может превышать 75 % среднедушевого дохода получателя <a class="ref" href="#src-14">[14]</a>. Поскольку главный доход большинства жителей — пенсия, в обиходе говорят просто: «интернат забирает три четверти пенсии». Правила расчёта среднедушевого дохода утверждены постановлением Правительства № 1075 от 18 октября 2014 года; по сообщению «Парламентской газеты», заработная плата работающих в интернатах людей с инвалидностью больше не учитывается при этом расчёте <a class="ref" href="#src-16">[16]</a>. Номер и дата поправки в публикации не указаны.<span class="dag">†</span></p>
+</section>
+
+
+<section class="part" id="part-2">
+<p class="eyebrow">Часть вторая</p>
+<h2>Цена месяца</h2>
+<p class="lede">Есть соблазн считать, что жизнь в интернате дёшева, потому что она бедна. Расчёты ВШЭ показывают, что это не так: интернат стоит почти столько же, сколько квартира с сопровождением. Разница между ними не в сумме, а в том, на что эта сумма уходит.</p>
+
+<h3>Что посчитала ВШЭ</h3>
+<p>Самая подробная российская работа на эту тему — исследование Института социальной политики НИУ ВШЭ «Разработка финансово-экономической модели сопровождаемого проживания граждан с ментальной инвалидностью и её сравнение с ПНИ», выполненное в 2021–2022 годах при поддержке Фонда Потанина по инициативе петербургских «Перспектив» <a class="ref" href="#src-1">[1, 2]</a>. Для интернатов исследователи использовали обследование НИИ труда 2019 года (390 учреждений), для сопровождаемого проживания — опрос шести проектов НКО 2021 года; кроме того, они провели интервью с представителями восемнадцати проектов, шестью сотрудниками интернатов и тремя экспертами <a class="ref" href="#src-1">[1]</a>. Шесть проектов — маленькая выборка, и это стоит держать в уме.</p>
+
+<p>Результат таков. Затраты на одного проживающего в месяц, включая его личные расходы, составили 44,8 тыс. ₽ в ПНИ и 52,9 тыс. ₽ в проектах сопровождаемого проживания в регионах; в столице — 111,9 тыс. ₽ <a class="ref" href="#src-1">[1]</a>. Авторы прямо пишут, что модель сопровождаемого проживания «обеспечивает лучший результат при сопоставимом или чуть более высоком уровне текущих затрат» <a class="ref" href="#src-1">[1]</a>.</p>
+
+<figure data-fig="two_costs"><svg viewBox="0 0 640 174" role="img" aria-label="Текущие и капитальные затраты на человека в месяц" style="font-family:var(--f-ui, 'Golos Text', sans-serif);font-size:12px"><text x="290.0" y="22.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Текущие: ПНИ</text><rect x="300" y="8" width="195.6" height="20" rx="2" class="s1"/><text x="502.6" y="22.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">44,8</text><text x="290.0" y="54.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Текущие: сопровождаемое проживание</text><rect x="300" y="40" width="231.0" height="20" rx="2" class="s2"/><text x="538.0" y="54.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">52,9</text><text x="290.0" y="86.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Капитальные: новый ПНИ или реновация</text><rect x="334.9" y="72" width="69.9" height="20" rx="2" class="s3"/><rect x="300" y="81.5" width="34.9" height="1" class="k-gridf"/><text x="411.8" y="86.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">8–24</text><text x="290.0" y="118.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Капитальные: ПНИ в арендованном здании</text><rect x="321.8" y="104" width="54.6" height="20" rx="2" class="s3"/><rect x="300" y="113.5" width="21.8" height="1" class="k-gridf"/><text x="383.4" y="118.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">5–17,5</text><text x="290.0" y="150.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Капитальные: покупка квартир для СП</text><rect x="308.7" y="136" width="17.5" height="20" rx="2" class="s3"/><rect x="300" y="145.5" width="8.7" height="1" class="k-gridf"/><text x="333.2" y="150.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">2–6</text></svg><figcaption>Рисунок 2.1. Текущие и капитальные затраты на человека в месяц, тыс. ₽. Источник — НИУ ВШЭ <a class="ref" href="#src-1">[1]</a>.</figcaption></figure>
+
+<p>Отдельно ВШЭ посчитала капитальные затраты. Строительство нового интерната обходится в 2,8 млн ₽ на одно койко-место, реновация спального корпуса — в 0,75 млн ₽. В пересчёте на месяц с учётом амортизации это 8–24 тыс. ₽ на жителя для нового строительства и реновации и 5–17,5 тыс. ₽, если интернат размещается в арендованном здании; для сопровождаемого проживания с покупкой квартир — 2–6 тыс. ₽ в зависимости от региона <a class="ref" href="#src-1">[1]</a>. Именно эти цифры первая версия доклада ошибочно приняла за стоимость содержания.</p>
+
+<h3>Куда уходят деньги</h3>
+<p>Сравнение структуры затрат объясняет, почему при близких суммах результат так разнится. В интернате на одного жителя приходится 0,56 штатной ставки, в проектах сопровождаемого проживания — 1,28. В сутки на одного человека в ПНИ оплачено 3,5 часа работы всех сотрудников, из них лишь 1,5 часа — работы тех, кто непосредственно ухаживает и сопровождает; в сопровождаемом проживании — 8,2 часа <a class="ref" href="#src-1">[1]</a>. Административно-управленческий персонал составляет 9 % штата интерната и 6,9 % — в проектах; обслуживающий персонал (кухня, прачечная, охрана, ремонт) — 29,4 % против 13,1 % <a class="ref" href="#src-1">[1]</a>. Иначе говоря, интернат тратит заметную часть денег на то, чтобы содержать само себя.</p>
+
+<figure data-fig="hours"><svg viewBox="0 0 640 110" role="img" aria-label="Оплаченные часы персонала на одного человека в сутки" style="font-family:var(--f-ui, 'Golos Text', sans-serif);font-size:12px"><text x="310.0" y="22.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">ПНИ: все сотрудники</text><rect x="320" y="8" width="84.7" height="20" rx="2" class="s1"/><text x="411.7" y="22.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">3,5 ч</text><text x="310.0" y="54.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">ПНИ: основной персонал (уход, сопровождение)</text><rect x="320" y="40" width="36.3" height="20" rx="2" class="s3"/><text x="363.3" y="54.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">1,5 ч</text><text x="310.0" y="86.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Проекты сопровождаемого проживания</text><rect x="320" y="72" width="198.4" height="20" rx="2" class="s2"/><text x="525.4" y="86.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">8,2 ч</text></svg><figcaption>Рисунок 2.2. Сколько часов работы персонала оплачено на одного человека в сутки. НИУ ВШЭ <a class="ref" href="#src-1">[1]</a>.</figcaption></figure>
+
+<p>Чтобы дать жителям интернатов столько же человеческого времени, сколько получают люди в квартирах, к штатному расписанию ПНИ по всей стране пришлось бы добавить 154 тысячи ставок. Операционные расходы выросли бы в два–три раза, а реновация, которая обеспечила бы сопоставимые условия проживания, потребовала бы единовременно не менее 200–300 млрд ₽ <a class="ref" href="#src-1">[1]</a>. В расчёте на одного жителя это 1,4–2,2 млн ₽ (оценка автора).</p>
+
+<p>Есть и бытовые подробности, которые многое объясняют. В интернате питание финансируется централизованно, по тарифам от 180 до 450 ₽ в сутки, а меню и время еды определяет распорядок. В квартирах продукты покупают сами жители на свои деньги, и эти траты составляют 10–15 % совокупного бюджета проекта, то есть 150–500 ₽ в день <a class="ref" href="#src-1">[1]</a>. В проектах сопровождаемого проживания на одного жителя приходится в среднем 17,5 м² жилой площади; средняя площадь спальни в стационаре, по открытым данным 2010 года, — 6,1 м² на койко-место <a class="ref" href="#src-1">[1]</a>.</p>
+
+<h3>Другие оценки и почему их нельзя просто сложить</h3>
+<figure data-fig="cost_range"><svg viewBox="0 0 640 174" role="img" aria-label="Оценки текущих расходов на человека в месяц" style="font-family:var(--f-ui, 'Golos Text', sans-serif);font-size:12px"><text x="290.0" y="22.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">ПНИ, среднее (ВШЭ)</text><rect x="300" y="8" width="90.3" height="20" rx="2" class="s1"/><text x="397.3" y="22.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">44,8</text><text x="290.0" y="54.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">ПНИ, диапазон оценок 2021–2022</text><rect x="400.8" y="40" width="141.1" height="20" rx="2" class="s3"/><rect x="300" y="49.5" width="100.8" height="1" class="k-gridf"/><text x="548.8" y="54.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">50–120</text><text x="290.0" y="86.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Сопровождаемое проживание, регионы (ВШЭ)</text><rect x="300" y="72" width="106.6" height="20" rx="2" class="s2"/><text x="413.6" y="86.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">52,9</text><text x="290.0" y="118.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">«Дом как дом», тяжёлые нарушения</text><rect x="300" y="104" width="181.4" height="20" rx="2" class="s2"/><text x="488.4" y="118.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">≈90</text><text x="290.0" y="150.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Сопровождаемое проживание, Москва (ВШЭ)</text><rect x="300" y="136" width="225.5" height="20" rx="2" class="s4"/><text x="532.5" y="150.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">111,9</text></svg><figcaption>Рисунок 2.3. Оценки текущих расходов на человека в месяц из разных источников, тыс. ₽ <a class="ref" href="#src-1">[1, 7]</a>.</figcaption></figure>
+<p>Помимо ВШЭ, в публичном поле есть и другие цифры. «Известия» в 2026 году приводили диапазон 50–120 тыс. ₽ в месяц для ПНИ по исследованиям 2021–2022 годов; руководитель ярославского проекта «Дом как дом» оценил месяц жизни человека с тяжёлыми нарушениями в своём доме примерно в 90 тыс. ₽ при полной загрузке, из которых основная часть — оплата ассистентов, 15 млн ₽ в год <a class="ref" href="#src-7">[7]</a>. Сравнивать эти цифры напрямую нельзя по трём причинам.</p>
+<ul>
+<li><b>Разные люди.</b> В обследованных ВШЭ проектах большинству подопечных требуется круглосуточное сопровождение <a class="ref" href="#src-2">[2]</a>. Средняя цена места в интернате, напротив, усредняет людей с очень разными потребностями.</li>
+<li><b>Разный состав затрат.</b> По наблюдению ВШЭ, имущество, которое государство безвозмездно передаёт интернату, некорректно учитывается в себестоимости и тарифах <a class="ref" href="#src-1">[1]</a>. Стоимость зданий в «цене места» почти не видна.</li>
+<li><b>Москва.</b> Столичная цена сопровождаемого проживания более чем вдвое выше средней по регионам.</li>
+</ul>
+
+<h3>Что получает человек</h3>
+<p>ВШЭ разработала индекс качества жизни на основе зарубежных методик и критериев ВОЗ и адаптировала его к российской практике. Интегральное значение — 76,9 балла из 100 в сопровождаемом проживании и 56,9 в интернате <a class="ref" href="#src-1">[1, 2]</a>. Сильнее всего разнится социальное благополучие (84,7 против 44,3 балла) и здоровье (85,2 против 69,1); безопасность различается мало (57,1 против 51,6) <a class="ref" href="#src-2">[2]</a>. Индекс апробирован в пилотном формате на экспертных оценках, и сами авторы предлагают доработать методику <a class="ref" href="#src-1">[1]</a>. Это сильный сигнал, но ещё не окончательное доказательство.</p>
+<figure data-fig="quality"><svg viewBox="0 0 640 300" role="img" aria-label="Индекс качества жизни" style="font-family:var(--f-ui, 'Golos Text', sans-serif);font-size:12px"><line x1="40" x2="632" y1="248.0" y2="248.0" class="k-grid"/><text x="34.0" y="252.0" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">0</text><line x1="40" x2="632" y1="205.2" y2="205.2" class="k-grid"/><text x="34.0" y="209.2" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">20</text><line x1="40" x2="632" y1="162.4" y2="162.4" class="k-grid"/><text x="34.0" y="166.4" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">40</text><line x1="40" x2="632" y1="119.6" y2="119.6" class="k-grid"/><text x="34.0" y="123.6" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">60</text><line x1="40" x2="632" y1="76.8" y2="76.8" class="k-grid"/><text x="34.0" y="80.8" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">80</text><line x1="40" x2="632" y1="34.0" y2="34.0" class="k-grid"/><text x="34.0" y="38.0" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">100</text><rect x="63.2" y="100.1" width="33.0" height="147.9" rx="2" class="s1"/><text x="79.7" y="95.1" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">69,1</text><rect x="99.2" y="65.7" width="33.0" height="182.3" rx="2" class="s2"/><text x="115.7" y="60.7" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">85,2</text><text x="99.2" y="266.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">Здоровье</text><rect x="181.6" y="153.2" width="33.0" height="94.8" rx="2" class="s1"/><text x="198.1" y="148.2" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">44,3</text><rect x="217.6" y="66.7" width="33.0" height="181.3" rx="2" class="s2"/><text x="234.1" y="61.7" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">84,7</text><text x="217.6" y="266.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">Социальное</text><text x="217.6" y="280.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">благополучие</text><rect x="300.0" y="117.5" width="33.0" height="130.5" rx="2" class="s1"/><text x="316.5" y="112.5" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">61</text><rect x="336.0" y="78.5" width="33.0" height="169.5" rx="2" class="s2"/><text x="352.5" y="73.5" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">79,2</text><text x="336.0" y="266.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">Бытовой</text><text x="336.0" y="280.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">комфорт</text><rect x="418.4" y="137.6" width="33.0" height="110.4" rx="2" class="s1"/><text x="434.9" y="132.6" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">51,6</text><rect x="454.4" y="125.8" width="33.0" height="122.2" rx="2" class="s2"/><text x="470.9" y="120.8" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">57,1</text><text x="454.4" y="266.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">Безопасность</text><rect x="536.8" y="126.2" width="33.0" height="121.8" rx="2" class="s1"/><text x="553.3" y="121.2" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">56,9</text><rect x="572.8" y="83.4" width="33.0" height="164.6" rx="2" class="s2"/><text x="589.3" y="78.4" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">76,9</text><text x="572.8" y="266.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">Интегральный</text><text x="572.8" y="280.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">индекс</text><rect x="40" y="6" width="12" height="12" rx="2" class="s1"/><text x="58.0" y="16.0" font-size="11" text-anchor="start" font-weight="400" class="k-ink">ПНИ</text><rect x="93.2" y="6" width="12" height="12" rx="2" class="s2"/><text x="111.2" y="16.0" font-size="11" text-anchor="start" font-weight="400" class="k-ink">Сопровождаемое проживание</text></svg><figcaption>Рисунок 2.4. Индекс качества жизни, баллы из 100. НИУ ВШЭ <a class="ref" href="#src-1">[1, 2]</a>.</figcaption></figure>
+
+<h3>Как менялся персонал интернатов</h3>
+<p>Между 2017 и 2024 годами обеспеченность интернатов персоналом выросла с 49 до 60 работников на 100 жителей, а социальных работников стало почти вшестеро больше — с 1,5 до 8,6 на сотню <a class="ref" href="#src-3">[3]</a>. Но три четверти основного персонала по-прежнему составляют медики, а Минтруд учитывает ставки, а не живых людей, так что реальный рост может быть скромнее <a class="ref" href="#src-3">[3]</a>. По данным ВШЭ за 2020 год, хоть какая-то занятость была только у 19,2 % жителей ПНИ, около 30 тысяч человек; в проектах сопровождаемого проживания расходы на занятость составляют 20–30 % бюджета <a class="ref" href="#src-1">[1]</a>.</p>
+<figure data-fig="staff"><svg viewBox="0 0 640 290" role="img" aria-label="Персонал ПНИ на 100 жителей" style="font-family:var(--f-ui, 'Golos Text', sans-serif);font-size:12px"><line x1="40" x2="632" y1="238.0" y2="238.0" class="k-grid"/><text x="34.0" y="242.0" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">0</text><line x1="40" x2="632" y1="187.0" y2="187.0" class="k-grid"/><text x="34.0" y="191.0" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">20</text><line x1="40" x2="632" y1="136.0" y2="136.0" class="k-grid"/><text x="34.0" y="140.0" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">40</text><line x1="40" x2="632" y1="85.0" y2="85.0" class="k-grid"/><text x="34.0" y="89.0" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">60</text><line x1="40" x2="632" y1="34.0" y2="34.0" class="k-grid"/><text x="34.0" y="38.0" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">80</text><rect x="78.0" y="113.0" width="33.0" height="125.0" rx="2" class="s3"/><text x="94.5" y="108.0" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">49</text><rect x="114.0" y="85.0" width="33.0" height="153.0" rx="2" class="s1"/><text x="130.5" y="80.0" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">60</text><text x="114.0" y="256.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">Весь персонал</text><rect x="226.0" y="171.7" width="33.0" height="66.3" rx="2" class="s3"/><text x="242.5" y="166.7" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">26</text><rect x="262.0" y="166.6" width="33.0" height="71.4" rx="2" class="s1"/><text x="278.5" y="161.6" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">28</text><text x="262.0" y="256.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">Медики</text><rect x="374.0" y="234.2" width="33.0" height="3.8" rx="2" class="s3"/><text x="390.5" y="229.2" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">1,5</text><rect x="410.0" y="216.1" width="33.0" height="21.9" rx="2" class="s1"/><text x="426.5" y="211.1" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">8,6</text><text x="410.0" y="256.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">Социальные</text><text x="410.0" y="270.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">работники</text><rect x="522.0" y="236.0" width="33.0" height="2.0" rx="2" class="s3"/><text x="538.5" y="231.0" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">0,8</text><rect x="558.0" y="234.2" width="33.0" height="3.8" rx="2" class="s1"/><text x="574.5" y="229.2" font-size="10.5" text-anchor="middle" font-weight="600" class="k-ink">1,5</text><text x="558.0" y="256.0" font-size="11" text-anchor="middle" font-weight="400" class="k-ink">Педагоги</text><rect x="40" y="6" width="12" height="12" rx="2" class="s3"/><text x="58.0" y="16.0" font-size="11" text-anchor="start" font-weight="400" class="k-ink">2017</text><rect x="99.6" y="6" width="12" height="12" rx="2" class="s1"/><text x="117.6" y="16.0" font-size="11" text-anchor="start" font-weight="400" class="k-ink">2024</text></svg><figcaption>Рисунок 2.5. Персонал ПНИ на 100 жителей, 2017 и 2024 годы <a class="ref" href="#src-3">[3]</a>.</figcaption></figure>
+
+<aside class="note"><p class="note-t">Вывод второй части</p>
+<p>Российские данные не дают права говорить, что сопровождаемое проживание дешевле интерната. Они дают право говорить другое: за близкие деньги человек в квартире получает вдвое больше человеческого внимания и заметно более высокое качество жизни, а интернату, чтобы сравняться с квартирой, понадобились бы огромные вложения и десятки тысяч новых сотрудников.</p></aside>
+</section>
+
+
+<section class="part" id="part-3">
+<p class="eyebrow">Часть третья</p>
+<h2>Что знает наука</h2>
+<p class="lede">О деинституционализации написано много манифестов и гораздо меньше исследований. Те немногие, что есть, отвечают на вопрос о деньгах осторожнее, чем хотелось бы сторонникам реформы, и твёрже, чем хотелось бы её противникам.</p>
+
+<h3>Европейское исследование DECLOC</h3>
+<p>В 2007 году центр Тизард Кентского университета вместе с партнёрами из нескольких стран выпустил по заказу Европейской комиссии отчёт «Деинституционализация и жизнь в сообществе: результаты и затраты» (Mansell, Knapp, Beadle-Brown, Beecham). Он охватил 28 европейских стран <a class="ref" href="#src-24">[24]</a>. Главные выводы стоит привести почти дословно.</p>
+<ul>
+<li>В хорошей системе поддержка людей с серьёзными нарушениями дорога, где бы они ни жили. Не следует ждать, что жизнь в сообществе окажется дешёвой только потому, что заменяемые учреждения кажутся недорогими. Дешёвые учреждения почти всегда дают низкое качество.</li>
+<li>Нет данных о том, что модели в сообществе по своей природе дороже учреждений, если сравнивать их при сопоставимых потребностях жителей и сопоставимом качестве. При правильной организации они дают лучшие результаты.</li>
+<li>Если учреждение недорого, перевод людей с лёгкими потребностями обычно обходится в те же деньги или дешевле при том же или лучшем качестве. Людям с тяжёлыми потребностями в хороших службах понадобится больше денег, но и качество будет выше.</li>
+<li>Закрытие учреждения редко приносит быстрые деньги: здания стары, земля не всегда востребована, а выручка от продажи появляется лишь после полного закрытия. На старте нужны вложения в новые службы, а несколько лет приходится оплачивать старую и новую системы параллельно. Бюджет закрываемого учреждения полезно оградить и направить на развитие услуг в сообществе.</li>
+</ul>
+
+<h3>Систематический обзор 2019 года</h3>
+<p>Двенадцать лет спустя в журнале BMJ Open вышел систематический обзор о затратах при деинституционализации взрослых с интеллектуальными нарушениями (May и соавторы). Авторы нашли всего два исследования, отвечающих их критериям, — британские когортные работы о людях, покинувших больницы длительного пребывания в 1980–1990-х годах. Одно показало более низкие средние затраты в сообществе (без проверки значимости), другое — статистически значимо более высокие на первом, пятом и двенадцатом году. Вывод обзора: забота в сообществе «не однозначно дешевле», данные неубедительны, нужны современные исследования <a class="ref" href="#src-25">[25]</a>.</p>
+
+<aside class="note"><p class="note-t">Что это значит для переговоров с Минфином</p>
+<p>Обещать экономию «в разы» нет научных оснований. Утверждать, что при сопоставимом качестве жизнь в сообществе не дороже учреждения, а дешёвое учреждение — это почти всегда плохое учреждение, основания есть. Это более скромная позиция, но она выдерживает проверку.</p></aside>
+
+<h3>Сколько тратит мир</h3>
+<p>ОЭСР измеряет расходы на долговременный уход — всё, что общество тратит на помощь людям, которые не справляются с повседневной жизнью. В 2021 году в среднем по странам ОЭСР это около 1,8 % ВВП. Больше всех тратили Нидерланды (4,4 %), затем Норвегия (3,5 %), Швеция (3,4 %) и Дания (3,2 %); Греция, Польша и Латвия — около 0,5 % или меньше <a class="ref" href="#src-28">[28]</a>. В среднем на долговременный уход приходится 13 % расходов на здравоохранение, а в странах с развитыми системами — четверть и больше <a class="ref" href="#src-28">[28]</a>.</p>
+<figure data-fig="ltc"><svg viewBox="0 0 640 270" role="img" aria-label="Расходы на долговременный уход, процент ВВП" style="font-family:var(--f-ui, 'Golos Text', sans-serif);font-size:12px"><text x="240.0" y="22.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Нидерланды</text><rect x="250" y="8" width="264.0" height="20" rx="2" class="s1"/><text x="521.0" y="22.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">4,4</text><text x="240.0" y="54.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Норвегия</text><rect x="250" y="40" width="210.0" height="20" rx="2" class="s1"/><text x="467.0" y="54.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">3,5</text><text x="240.0" y="86.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Швеция</text><rect x="250" y="72" width="204.0" height="20" rx="2" class="s1"/><text x="461.0" y="86.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">3,4</text><text x="240.0" y="118.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Дания</text><rect x="250" y="104" width="192.0" height="20" rx="2" class="s1"/><text x="449.0" y="118.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">3,2</text><text x="240.0" y="150.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Среднее по ОЭСР</text><rect x="250" y="136" width="108.0" height="20" rx="2" class="s2"/><text x="365.0" y="150.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">1,8</text><text x="240.0" y="182.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Республика Корея (2019)</text><rect x="250" y="168" width="60.0" height="20" rx="2" class="s3"/><text x="317.0" y="182.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">≈1,0</text><text x="240.0" y="214.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Греция, Польша, Латвия</text><rect x="250" y="200" width="30.0" height="20" rx="2" class="s3"/><text x="287.0" y="214.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">≤0,5</text><text x="240.0" y="246.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Россия, только ПНИ (оценка)</text><rect x="250" y="232" width="2.4" height="20" rx="2" class="s4"/><text x="259.4" y="246.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">≈0,04</text></svg><figcaption>Рисунок 3.1. Расходы на долговременный уход, % ВВП <a class="ref" href="#src-28">[28, 40]</a>. Российская оценка охватывает только текущие расходы на ПНИ и поэтому заведомо занижена относительно определения ОЭСР.</figcaption></figure>
+<p>Для России такой оценки в статистике ОЭСР нет. Можно сделать грубый расчёт для одной лишь системы интернатов: 139 тысяч жителей × 44,8 тыс. ₽ × 12 месяцев ≈ 75 млрд ₽ в год, или около 0,04 % ВВП 2024 года (оценка автора). Сюда не входят дома-интернаты для престарелых, надомное обслуживание и система долговременного ухода, на которую в 2026 году выделено 31,5 млрд ₽ <a class="ref" href="#src-10">[10]</a>; полная цифра, разумеется, выше, но порядок отставания от стран ОЭСР понятен.</p>
+
+<h3>Международные обязательства</h3>
+<p>В 2022 году Комитет ООН по правам инвалидов принял руководящие принципы по деинституционализации, в том числе в чрезвычайных ситуациях. Они дополняют Замечание общего порядка № 5 (2017) к статье 19 Конвенции о праве жить самостоятельно и быть включённым в местное сообщество и прямо говорят, что осуществление этого права не может приостанавливаться даже в чрезвычайных обстоятельствах <a class="ref" href="#src-27">[27]</a>. Россия ратифицировала Конвенцию в 2012 году.</p>
+
+<h3>Деньги не гарантируют реформу</h3>
+<p>Европейский опыт содержит и предостережение. Европейская коалиция за жизнь в сообществе в 2010 году показала на примере Венгрии и Румынии, что структурные фонды ЕС шли на содержание больших учреждений; Европейская сеть независимой жизни (ENIL) в брифинге 2018 года по 18 странам и в теневом докладе 2025 года фиксировала, что средства по-прежнему уходят в крупные учреждения, малые групповые дома и закрытые мастерские вместо услуг в сообществе <a class="ref" href="#src-26">[26]</a>. Источник денег сам по себе ничего не решает; решают правила, на что их можно тратить.</p>
+</section>
+
+
+<section class="part" id="part-4">
+<p class="eyebrow">Часть четвёртая</p>
+<h2>Восемь стран</h2>
+<p class="lede">Чужой опыт полезен не как образец для копирования, а как зеркало. В каждой из восьми историй ниже есть то, что работает, то, что не доказано, и то, что можно взять в российский регион уже сейчас.</p>
+
+<h3>Германия: уход как отдельная страховка</h3>
+<p>С 1995 года в Германии действует обязательное страхование долговременного ухода (Pflegeversicherung). С 1 января 2025 года взнос составляет 3,6 % облагаемого дохода, для бездетных — 4,2 % <a class="ref" href="#src-29">[29]</a>. На конец 2023 года социальная страховка ухода выплачивала пособия 5,58 млн человек, из них 4,39 млн получали помощь на дому и 0,84 млн — в стационаре; ещё 0,34 млн застрахованы в частной системе <a class="ref" href="#src-31">[31]</a>. В 2025 году расходы выросли на 8,2 % и достигли 73,8 млрд €, тогда как взносы принесли 72,5 млрд €; дефицита удалось избежать лишь благодаря федеральному займу в 500 млн €. На 2026 год ожидаются расходы около 79 млрд € при поступлениях 75,3 млрд €, и без нового займа в 3,2 млрд € дефицит составил бы 4,4 млрд € <a class="ref" href="#src-29">[29]</a>.</p>
+<p>Страховка покрывает уход, но не жильё и питание. Собственная доплата жителя дома престарелых в первый год пребывания на 1 января 2026 года составила в среднем 3 245 € в месяц — на 261 € (9 %) больше, чем годом раньше <a class="ref" href="#src-30">[30]</a>.</p>
+<p class="take"><b>Что взять России.</b> Не саму страховку, а три её принципа: уход — отдельный риск, который виден в бюджете и считается; пакет помощи определяется уровнем потребности, а не диагнозом; семья, которая ухаживает сама, получает за это деньги, а не только обязанности.</p>
+
+<h3>Англия: муниципалитеты, жильё и прямые выплаты</h3>
+<p>В 2024/25 году Англия потратила на социальное обслуживание взрослых 34,5 млрд £, на 7,9 % больше, чем годом раньше. Из 29,4 млрд £ валовых текущих расходов местных властей 23,6 млрд £ (80 %) пришлось на долговременную поддержку. Неделя в доме ухода в среднем стоила 1 185,55 £, на 7 % дороже, чем годом ранее <a class="ref" href="#src-32">[32]</a>.</p>
+<p>Исследование Mencap и Housing LIN 2018 года сравнило цены для людей с нарушениями интеллектуального развития: специализированное сопровождаемое жильё обходилось государству в 1 569 £ в неделю на человека, место в доме ухода — в 1 760 £, место в стационаре — в 3 500 £ <a class="ref" href="#src-34">[34]</a>. Благотворительная жилищная компания Golden Lane Housing, связанная с Mencap, в 2014 году за восемь дней привлекла 11 млн £ первой благотворительной облигацией на Лондонской бирже и купила на эти деньги 30 домов более чем для ста человек; всего компания вложила свыше 83 млн £ в 700 домов для 1 320 жильцов <a class="ref" href="#src-35">[35]</a>.</p>
+<p>У английской системы есть и тёмная сторона, о которой речь пойдёт в пятой части: на конец июля 2026 года в психиатрических стационарах оставались 2 115 человек с нарушениями интеллектуального развития и аутизмом, почти половина из них — дольше двух лет <a class="ref" href="#src-33">[33]</a>.</p>
+<p class="take"><b>Что взять России.</b> Отдельно считать расходы на сопровождаемое проживание и на учебные квартиры. То, что не выделено в отдельную строку, невозможно ни защитить, ни нарастить.</p>
+
+<h3>Нидерланды: деревня Хогевейк</h3>
+<p>Хогевейк в Веспе, неподалёку от Амстердама, открылся в 2009 году как «деревня» для людей с тяжёлой деменцией: около 150 жителей в 23 домах по шесть–восемь человек, площадь, магазин, кафе. Жителей подбирают в дома по укладу жизни, а не по диагнозу <a class="ref" href="#src-37">[37]</a>. Стоимость в разных источниках разнится: по одним данным, она сопоставима с обычным домом престарелых, около 5 000 € в месяц; по другим, приближается к 8 000 $, из которых семья платит в зависимости от дохода <a class="ref" href="#src-37">[37]</a>.<span class="dag">†</span></p>
+<p>Самое важное здесь — то, чего мы не знаем. Канадское агентство по оценке медицинских технологий CADTH не нашло опубликованных оценок самого Хогевейка и указало, что объективных доказательств улучшения клинических исходов, качества жизни или эффективности затрат недостаточно, а воспроизведение модели потребует дополнительных капитальных вложений <a class="ref" href="#src-36">[36]</a>. Сама страна тем временем продолжает перестраивать систему: реформа 2015 года передала значительную часть внестационарной помощи муниципалитетам и сместила акцент с учреждений на помощь дома <a class="ref" href="#src-52">[52]</a>; в 2025 году расходы по закону о долговременном уходе (Wlz) выросли на 7,6 % <a class="ref" href="#src-53">[53]</a>.</p>
+<p class="take"><b>Что взять России.</b> То, что не требует строительства: подбирать соседей по укладу жизни, держать группы малыми, снять с немедицинского персонала белые халаты, вернуть людям магазин, кухню и двор.</p>
+
+<h3>Япония и Корея: страхование ухода и скорость перемен</h3>
+<p>Япония ввела страхование долговременного ухода в 2000 году. В 2023 финансовом году общие расходы на уход и профилактику для пожилых достигли 11,5 трлн иен, в 2,6 раза больше, чем в 2001 году <a class="ref" href="#src-38">[38]</a>. Параллельно страна медленно сокращала длительность психиатрической госпитализации: с примерно 500 дней в 1990 году до около 266 дней в 2018-м, хотя коек на 100 тысяч жителей там по-прежнему около 267 при среднем по ОЭСР около 66 <a class="ref" href="#src-39">[39]</a>.</p>
+<p>Корея ввела страхование ухода в 2008 году и быстро нарастила систему: расходы по страховке росли в среднем на 15,2 % в год в 2009–2018 годах, доля охваченных людей старше 65 лет поднялась с 3,9 % до 8,4 %, а суммарные расходы на долговременный уход к 2019 году достигли примерно 1,0–1,1 % ВВП <a class="ref" href="#src-40">[40]</a>.</p>
+<p class="take"><b>Что взять России.</b> Из Японии — фигуру кейс-менеджера, который собирает для человека пакет услуг из разных ведомств, и оценку потребности вместо оценки по диагнозу. Из Кореи — понимание, что национальную систему можно построить за десятилетие, если решение принято.</p>
+
+<h3>Италия: Триест</h3>
+<p>Закон 180, или закон Базальи (1978), прекратил госпитализацию в старые психиатрические больницы. Триест стал витриной реформы. Описания системы 2006–2012 годов совпадают: на город с населением около 240 тысяч человек работают четыре центра психического здоровья, открытые круглые сутки; каждый обслуживает около 60 тысяч жителей и располагает шестью–восемью кроватями для кратковременного пребывания; в больнице общего профиля есть всего шесть психиатрических коек, в основном для ночных экстренных случаев; штат — около одного сотрудника на тысячу жителей <a class="ref" href="#src-41">[41]</a>. В 1971 году в психиатрической больнице Триеста было около 1 200 коек <a class="ref" href="#src-41">[41]</a>.</p>
+<p>Частью итальянской модели стали социальные кооперативы типа B, в которых не менее 30 % работников — люди из уязвимых групп, включая людей с психическими и интеллектуальными нарушениями. По переписи 2011 года таких кооперативов было около 4 500; материалы Европейского фонда образования 2025 года называют около 5 300 <a class="ref" href="#src-42">[42]</a>.<span class="dag">†</span> Свежих данных о самом Триесте в этой редакции нет: доступные описания относятся к 2006–2014 годам <a class="ref" href="#src-41">[41]</a>.</p>
+<p class="take"><b>Что взять России.</b> Круглосуточный районный центр, где в кризис можно провести несколько ночей, снимает главный страх, который удерживает людей в интернатах: «а что, если обострение». И работа в кооперативе, а не занятость в мастерской за забором.</p>
+
+<h3>Финляндия: сначала квартира</h3>
+<p>Финская программа Housing First даёт бездомному постоянное жильё без предварительных условий — трезвости, лечения, «исправления», а поддержку приносит уже по адресу. С 2008 по 2022 год долговременная бездомность в стране сократилась на 68 % <a class="ref" href="#src-43">[43]</a>. Экономию для общества финские оценки называют на уровне не менее 15 000 € в год на человека — за счёт скорой помощи, полиции и правосудия <a class="ref" href="#src-44">[44]</a>.<span class="dag">†</span></p>
+<p>Но и финская история не закончена. В отчёте, опубликованном в феврале 2025 года, насчитали 3 806 бездомных — на 377 больше, чем годом раньше; это был первый рост после одиннадцати лет снижения. В ноябре 2025 года их было уже около 4 579, на 20 % больше, из них 1 306 — долговременно бездомные <a class="ref" href="#src-43">[43]</a>. Города объясняют разворот ростом стоимости жизни, сокращением социальных выплат и вдвое урезанным бюджетом жилищного консультирования <a class="ref" href="#src-43">[43]</a>.</p>
+<p>Рандомизированный эксперимент At Home/Chez Soi в Канаде подтвердил, что Housing First повышает устойчивость жилья. По промежуточным отчётам, затраты программы в среднем компенсировались экономией на других службах на 54 %, а для людей с самыми высокими потребностями — почти полностью; полностью окупалась программа не всегда <a class="ref" href="#src-45">[45]</a>.</p>
+<p class="take"><b>Что взять России.</b> Жильё и сопровождение сразу, без требования «заслужить» квартиру примерным поведением в интернате. И трезвое понимание: даже лучшая модель откатывается, когда урезают её обеспечение.</p>
+
+<h3>Дания и Швеция: успех с оборотной стороной</h3>
+<p>Дания в конце 1980-х годов ограничила строительство традиционных домов престарелых и перешла к жилью из отдельных квартир с собственной кухней и ванной, где жилец платит аренду и сам выбирает услуги.<span class="dag">†</span> Эта модель стала символом скандинавской деинституционализации. Но у неё есть и оборотная сторона: по данным датского исследовательского центра VIVE, доля людей старше 80 лет, получающих помощь на дому, снизилась с 43 % в 2008 году до 30 % в 2019-м, а доля среди всех старше 65 лет — с 18 % до 11 % <a class="ref" href="#src-46">[46]</a>.</p>
+<p>В Швеции число жителей домов престарелых сократилось примерно со 118 тысяч в 2001 году до 90 тысяч, хотя число людей старше 65 лет за то же время выросло на 16 % <a class="ref" href="#src-47">[47]</a>. Шведские исследователи отмечают, что люди попадают в дома престарелых позже и в более тяжёлом состоянии <a class="ref" href="#src-47">[47]</a>.</p>
+<p class="take"><b>Что взять России.</b> Права жильца, а не «проживающего». И предостережение: когда экономят на лёгкой помощи, человек раньше оказывается в самой дорогой.</p>
+
+<h3>Бразилия: деньги вслед за человеком</h3>
+<p>Закон 10.216 (2001) запустил в Бразилии закрытие психиатрических больниц и развитие общинных центров психосоциальной помощи (CAPS). Число психиатрических коек с 1995 по 2005 год сократилось на 41 %, с 5,4 до 3,2 на 10 тысяч жителей; доля госпитализаций в расходах на психическое здоровье упала с 95,5 % до 49 %, а с 2006 года внебольничные расходы превышают больничные <a class="ref" href="#src-48">[48]</a>. В 2024 году в стране работало в среднем 1,13 центра CAPS на 100 тысяч жителей <a class="ref" href="#src-48">[48]</a>.</p>
+<p>У бразильской истории есть и неудобная деталь: за 1995–2005 годы расходы на психическое здоровье на душу населения снизились с 2,66 до 1,95 доллара <a class="ref" href="#src-48">[48]</a>. Реформа шла на скудные деньги и до сих пор неравномерна по регионам.</p>
+<p class="take"><b>Что взять России.</b> Структура бюджета может измениться без увеличения общей суммы. Это ориентир, а не обещание.</p>
+</section>
+
+
+<section class="part" id="part-5">
+<p class="eyebrow">Часть пятая</p>
+<h2>Дорогие уроки</h2>
+<p class="lede">Успехи учат вдохновению, провалы — осторожности. Ниже четыре истории, каждая из которых обошлась кому-то годами жизни, и пять способов повторить их в России.</p>
+
+<h3>США: закрыли больницы, не построив сообщества</h3>
+<p>Американская деинституционализация 1960–1980-х годов закрывала государственные психиатрические больницы быстрее, чем создавались службы в сообществе. По оценке Treatment Advocacy Center, в 2014 году за решёткой находились около 383 тысяч человек с тяжёлыми психическими расстройствами — почти в десять раз больше, чем пациентов, остававшихся в государственных больницах <a class="ref" href="#src-49">[49]</a>. В 44 из 50 штатов тюрьма или изолятор содержали больше таких людей, чем крупнейшая психиатрическая больница штата <a class="ref" href="#src-49">[49]</a>. Урок прост и жесток: сначала альтернатива, потом выписка.</p>
+
+<h3>Англия: Уинтербоурн-Вью</h3>
+<p>31 мая 2011 года программа BBC Panorama показала скрытую съёмку из частной больницы Winterbourne View для людей с нарушениями развития. Одиннадцать сотрудников предстали перед судом, шестеро получили реальные сроки; оператор Castlebeck обанкротился в 2013 году <a class="ref" href="#src-50">[50]</a>. Из 48 человек, живших в больнице, к июню 2014 года десятеро всё ещё находились в стационарах <a class="ref" href="#src-50">[50]</a>. Правительство ответило программой Transforming Care, но цель — к марту 2024 года сократить число таких пациентов вдвое относительно 2015 года — не была достигнута: 2 905 человек в 2015 году, 2 045 в марте 2024-го <a class="ref" href="#src-33">[33]</a>. В июле 2026 года их было 2 115; 49 % находились в больнице дольше двух лет, 315 человек — дольше десяти <a class="ref" href="#src-33">[33]</a>. Законов и денег хватало. Не хватало жилья, местных команд и чужого взгляда внутрь закрытых стен.</p>
+
+<h3>Греция: Лерос</h3>
+<p>Психиатрическая больница на острове Лерос, открытая в 1958 году, была одной из крупнейших в Европе. 10 сентября 1989 года газета Observer вышла с репортажем «Europe's Guilty Secret» и фотографиями обнажённых пациентов во дворе больницы <a class="ref" href="#src-51">[51]</a>. Под давлением международного осуждения началась реформа, в которой ключевую роль сыграли итальянские психиатры; больница работала до 1995 года, а наблюдатели Европейской комиссии позднее описали преобразование острова как одно из самых драматичных «бегств в обычную жизнь» <a class="ref" href="#src-51">[51]</a>. Двадцать лет спустя BBC обнаружила в другой греческой больнице, Дромокаитио, привязанных к кроватям пациентов и острую нехватку персонала.<span class="dag">†</span> Реформа, которая держится на проектных деньгах, а не на постоянной статье бюджета, откатывается назад.</p>
+
+<h3>Скандинавия: экономия на лёгком</h3>
+<p>Датские и шведские цифры из четвёртой части показывают, как незаметно работает эта ловушка. Каждое отдельное решение урезать часы домашней помощи выглядит разумным. Вместе они приводят к тому, что человек раньше и в худшем состоянии оказывается там, где помощь стоит дороже всего.</p>
+
+<h3>Российские версии этих ошибок</h3>
+<div class="tbl"><table>
+<tr><th style="width:24%">Риск</th><th>Что видно в России</th><th style="width:10%">Ист.</th></tr>
+<tr><td><b>Вывеска вместо реформы</b></td><td>К концу 2025 года интернаты переименованы как минимум в 41 регионе; первой была Москва в 2022 году. Эксперты считают эти перемены в основном внешними.</td><td><a class="ref" href="#src-3">[3, 5]</a></td></tr>
+<tr><td><b>Новые большие здания</b></td><td>Минтруд и Минстрой объявляли программу строительства современных домов престарелых и ПНИ на 40 млрд ₽; с 2025 года федеральные средства направляются на строительство и реновацию региональных учреждений. Эксперты называют это препятствием реформе.</td><td><a class="ref" href="#src-4">[4, 5, 23]</a></td></tr>
+<tr><td><b>Учёба как конечная станция</b></td><td>74 % участников программы — в учебных квартирах, часто на территории интерната; часть возвращается обратно.</td><td><a class="ref" href="#src-6">[6]</a></td></tr>
+<tr><td><b>Большие группы</b></td><td>В среднем 7–8 человек в квартире при рекомендованных 3–4.</td><td><a class="ref" href="#src-3">[3, 6]</a></td></tr>
+<tr><td><b>Выпуск без поддержки</b></td><td>По наблюдению «Перспектив», без сопровождения часть выпускников теряет жильё, попадает к мошенникам и возвращается в интернат.</td><td><a class="ref" href="#src-19">[19]</a></td></tr>
+<tr><td><b>Недееспособность как стена</b></td><td>74 % жителей недееспособны, опекун — интернат; законопроект о распределённой опеке отклонён в 2025 году.</td><td><a class="ref" href="#src-3">[3, 15]</a></td></tr>
+</table></div>
+</section>
+
+
+<section class="part" id="part-6">
+<p class="eyebrow">Часть шестая</p>
+<h2>Россия: десять лет реформы</h2>
+<p class="lede">За десять лет российская реформа прошла путь от первых методических рекомендаций до федерального закона. Путь от закона до квартиры для каждого, кто может в ней жить, оказался длиннее.</p>
+
+<h3>Хронология</h3>
+<div class="tbl"><table>
+<tr><th style="width:18%">Год</th><th>Событие</th><th style="width:10%">Ист.</th></tr>
+<tr><td>2016</td><td>Первая дорожная карта реформы ПНИ</td><td><a class="ref" href="#src-3">[3]</a></td></tr>
+<tr><td>2017</td><td>Первые методические рекомендации Минтруда по сопровождаемому проживанию</td><td><a class="ref" href="#src-1">[1, 3]</a></td></tr>
+<tr><td>2019</td><td>План Минтруда по развитию стационарозамещающих технологий; субсидии регионам по программе «Доступная среда»</td><td><a class="ref" href="#src-1">[1, 8]</a></td></tr>
+<tr><td>2020</td><td>Приказ Минтруда закрепил приоритет жизни вне интерната</td><td><a class="ref" href="#src-3">[3]</a></td></tr>
+<tr><td>2022</td><td>Пилот Минтруда в Нижегородской и Воронежской областях; исследование ВШЭ</td><td><a class="ref" href="#src-1">[1, 8]</a></td></tr>
+<tr><td>2023</td><td>Закон № 137-ФЗ от 28 апреля: статья 9.1 о сопровождаемом проживании действует с 1 сентября</td><td><a class="ref" href="#src-11">[11]</a></td></tr>
+<tr><td>2024</td><td>Постановление Правительства № 910 от 3 июля о правилах организации сопровождаемого проживания</td><td><a class="ref" href="#src-12">[12]</a></td></tr>
+<tr><td>Февраль 2025</td><td>Госдума отклонила законопроект о распределённой опеке спустя девять лет после первого чтения</td><td><a class="ref" href="#src-15">[15]</a></td></tr>
+<tr><td>2025</td><td>Приказ Минтруда № 85 от 25 февраля с методическими рекомендациями, действует с 1 марта</td><td><a class="ref" href="#src-13">[13]</a></td></tr>
+<tr><td>Сентябрь 2026</td><td>«Перспективы» предложили единый стандарт сопровождения выпускников ПНИ</td><td><a class="ref" href="#src-19">[19]</a></td></tr>
+</table></div>
+
+<h3>Сколько людей вышло за ворота</h3>
+<figure data-fig="gap"><svg viewBox="0 0 640 142" role="img" aria-label="Жители ПНИ, потенциал и охват" style="font-family:var(--f-ui, 'Golos Text', sans-serif);font-size:12px"><text x="300.0" y="22.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Жители ПНИ, 2024</text><rect x="310" y="8" width="219.7" height="20" rx="2" class="s1"/><text x="536.7" y="22.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">139,5</text><text x="300.0" y="54.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Потенциал перехода, до 45 %</text><rect x="310" y="40" width="98.9" height="20" rx="2" class="s3"/><text x="415.9" y="54.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">≈63</text><text x="300.0" y="86.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Сопровождаемое проживание по Минтруду, 2025</text><rect x="310" y="72" width="12.6" height="20" rx="2" class="s2"/><text x="329.6" y="86.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">8,0</text><text x="300.0" y="118.0" font-size="12" text-anchor="end" font-weight="400" class="k-ink">Постоянное проживание, оценка</text><rect x="310" y="104" width="2.8" height="20" rx="2" class="s4"/><text x="319.8" y="118.0" font-size="12" text-anchor="start" font-weight="600" class="k-ink">1,8</text></svg><figcaption>Рисунок 6.1. Жители ПНИ, потенциал перехода и фактический охват, тыс. человек <a class="ref" href="#src-3">[3, 4, 6]</a>.</figcaption></figure>
+<p>По данным Минтруда, в 2024 году сопровождаемым проживанием пользовались около 7 тысяч человек, в 2,7 раза больше, чем шестью годами раньше; в 2025 году — около 8 тысяч человек с инвалидностью, из них 6,4 тысячи с психическими расстройствами <a class="ref" href="#src-4">[4, 6]</a>. Независимые аналитики насчитывают на постоянном проживании не более 1,8 тысячи человек в 214 квартирах <a class="ref" href="#src-3">[3, 6]</a>. Активнее всего формат развивается в Санкт-Петербурге, Ленинградской и Свердловской областях <a class="ref" href="#src-6">[6]</a>; Минтруд называет передовыми также Пензенскую, Псковскую, Челябинскую области и Якутию <a class="ref" href="#src-3">[3]</a>. ВШЭ оценивала потенциальный круг получателей сопровождаемого проживания минимум в 216 тысяч человек с психическими расстройствами, а потребность в целом была покрыта, по её оценке, лишь примерно на 20 % <a class="ref" href="#src-1">[1]</a>.</p>
+
+<h3>Что сделано в регионах</h3>
+<div class="tbl"><table>
+<tr><th style="width:24%">Регион</th><th>Что сделано</th><th style="width:10%">Ист.</th></tr>
+<tr><td><b>Нижегородская область</b></td><td>Обследовали 350 жителей ПНИ: у каждого пятого потребность в сопровождении не более двенадцати часов в неделю. Открыт специализированный дом на одиннадцать человек; двое бывших воспитанников детских домов получили положенное им жильё и переехали. По сообщению «Ведомостей», открытие интернатов для волонтёров снизило число нарушений.</td><td><a class="ref" href="#src-4">[4, 8]</a></td></tr>
+<tr><td><b>Ленинградская область</b></td><td>Мультицентр социальной и трудовой интеграции сопровождает 150 человек; создан дополнительный перечень из четырнадцати услуг, включая помощь в управлении финансами; работодатель получает до 500 тыс. ₽ на оборудование рабочего места.</td><td><a class="ref" href="#src-8">[8]</a></td></tr>
+<tr><td><b>Москва</b></td><td>Центр сопровождаемого проживания «Гурьевский»: общежития более чем на 120 мест и квартиры в обычных домах. В 2021 году шесть НКО получили девятнадцать городских квартир на пять лет; за 2022 год социальные дома подготовили к самостоятельной или семейной жизни более 80 выпускников.</td><td><a class="ref" href="#src-18">[18]</a></td></tr>
+<tr><td><b>Санкт-Петербург</b></td><td>По отчёту городского уполномоченного по правам человека за 2024 год, более 70 % программ реабилитации трудоспособных жителей бывших ПНИ нуждаются в пересмотре; выявлены 68 кандидатов на самостоятельное проживание с индивидуальным сопровождением и 48 — на групповое.</td><td><a class="ref" href="#src-6">[6]</a></td></tr>
+<tr><td><b>Челябинская область</b></td><td>ВЭБ.РФ реализует проект социального воздействия в сфере сопровождаемого проживания для людей старше 18 лет с нарушениями интеллекта: проживание малыми группами в обычном жилье или сопровождение на дому. Целевое значение в отчёте о мониторинге — 12 получателей; фактические итоги в доступных материалах не опубликованы.</td><td><a class="ref" href="#src-20">[20]</a></td></tr>
+<tr><td><b>Якутия</b></td><td>ВЭБ.РФ и ГАООРДИ планировали к концу 2024 года открыть отделение постоянного сопровождаемого проживания на 12 человек и сопровождение на дому ещё для 18.</td><td><a class="ref" href="#src-21">[21]</a></td></tr>
+<tr><td><b>Свердловская область</b></td><td>Организация «Благое дело» готовила дом сопровождаемого проживания на семь человек в усадьбе 1880 года в посёлке Верх-Нейвинский, рядом со своими мастерскими.</td><td><a class="ref" href="#src-17">[17]</a></td></tr>
+<tr><td><b>Ярославская область</b></td><td>Дом «Дом как дом» для людей с тяжёлыми нарушениями: около 90 тыс. ₽ в месяц на жителя.</td><td><a class="ref" href="#src-7">[7]</a></td></tr>
+</table></div>
+
+<h3>Система долговременного ухода</h3>
+<p>Рядом с реформой интернатов растёт другая федеральная система — долговременного ухода за пожилыми и людьми с инвалидностью. В июне 2026 года она охватывала около 184 тысяч человек, 11 % нуждающихся (годом раньше — 10,5 %), из них 45 тысяч в сельской местности; к 2030 году охват должен вырасти до 30 %, около 500 тысяч человек. На 2026 год на неё выделено 31,5 млрд ₽, а в федеральный проект «Старшее поколение» заложено 362 млрд ₽, из которых 307 млрд — на организацию ухода <a class="ref" href="#src-9">[9, 10]</a>. Для темы доклада она важна тем, что создаёт то, чего недостаёт при выходе из интерната: надомный уход и подготовленных людей.</p>
+
+<h3>Шесть барьеров</h3>
+<div class="tbl"><table>
+<tr><th style="width:20%">Барьер</th><th style="width:34%">Суть</th><th>Что делают</th></tr>
+<tr><td><b>Недееспособность</b></td><td>74 % жителей недееспособны, их опекун — интернат.</td><td>Ленинградская область ввела услугу «помощь в управлении финансами». Минтруд рекомендует работу по восстановлению дееспособности; в 2024 году число частично недееспособных, вернувших полную дееспособность, выросло примерно в полтора раза <a class="ref" href="#src-4">[4]</a>. Центр лечебной педагогики предлагает передавать функции опекуна организациям-поставщикам услуг <a class="ref" href="#src-8">[8]</a>.</td></tr>
+<tr><td><b>Жильё</b></td><td>Некуда выписываться; положенные бывшим сиротам квартиры нельзя использовать, пока человек живёт в интернате.</td><td>Нижний Новгород восстанавливает сиротские права; нужна норма, позволяющая использовать такое жильё для сопровождаемого проживания <a class="ref" href="#src-8">[8]</a>.</td></tr>
+<tr><td><b>Плата за место</b></td><td>До 75 % дохода уходит интернату.</td><td>Это федеральный вопрос. Он меняет не полную стоимость жизни, а то, кто её оплачивает и кто распоряжается деньгами.</td></tr>
+<tr><td><b>Деньги «на место»</b></td><td>Бюджет привязан к койкам: сократил места — потерял финансирование.</td><td>Норматив «на человека с потребностью» и включение сопровождения в региональный перечень услуг.</td></tr>
+<tr><td><b>Кадры</b></td><td>Сопровождающих мало, зарплаты в социальной сфере неконкурентны <a class="ref" href="#src-9">[9]</a>.</td><td>Переобучение сотрудников интернатов, которые знают людей; кейс-менеджер по японскому образцу; отдельное финансирование сопровождения выпускников <a class="ref" href="#src-19">[19]</a>.</td></tr>
+<tr><td><b>Страх ответственности</b></td><td>«Что, если с человеком что-то случится за стенами?»</td><td>Районный кризисный центр по образцу Триеста, учебная квартира как ступенька, ясный порядок действий при обострении.</td></tr>
+</table></div>
+</section>
+
+
+<section class="part" id="part-7">
+<p class="eyebrow">Часть седьмая</p>
+<h2>Калькулятор: сколько заботы на миллион</h2>
+<p class="lede">Этот калькулятор не обещает экономии. Он показывает, при каких условиях она возможна, а при каких нет, и что именно нужно измерить в своём регионе, чтобы ответ перестал быть мнением.</p>
+
+<h3>Что можно купить на миллион рублей в год</h3>
+<div class="tbl"><table>
+<caption>Таблица 7.1. Объём услуг на 1 млн ₽ в год</caption>
+<tr><th>Единица</th><th class="n">На 1 млн ₽</th><th>Основание</th></tr>
+<tr><td>Место в ПНИ</td><td class="n">1,9 человека</td><td>44,8 тыс. ₽ × 12 = 537,6 тыс. ₽ в год <a class="ref" href="#src-1">[1]</a></td></tr>
+<tr><td>Сопровождаемое проживание, регионы</td><td class="n">1,6 человека</td><td>52,9 тыс. ₽ × 12 = 634,8 тыс. ₽ <a class="ref" href="#src-1">[1]</a></td></tr>
+<tr><td>Сопровождаемое проживание, столица</td><td class="n">0,7 человека</td><td>111,9 тыс. ₽ × 12 = 1 342,8 тыс. ₽ <a class="ref" href="#src-1">[1]</a></td></tr>
+<tr><td>Часы сопровождения</td><td class="n">1 700–2 900 ч</td><td>При цене часа 350–600 ₽ (допущение; московский тариф 2026 года — 337–507 ₽ <a class="ref" href="#src-22">[22]</a>). Это 32–55 часов в неделю круглый год, или три–пять человек по двенадцать часов</td></tr>
+</table></div>
+<p>Один и тот же миллион — это два места в интернате или три–пять человек с лёгкой потребностью в своих квартирах. Какой вариант разумнее, зависит не от бюджета, а от того, что нужно конкретным людям. Поэтому первый шаг всякой реформы — обследование.</p>
+
+<h3>Когда квартира дешевле места</h3>
+<p>Модель предельно проста. Полная стоимость жизни в квартире равна стоимости сопровождения (часы в неделю × 52 ÷ 12 × цена часа) плюс «жильё и быт» — доля аренды и коммунальных платежей, еда, одежда. Для «жилья и быта» взяты три уровня — 22, 30 и 38 тыс. ₽ в месяц, для часа — 350, 475 и 600 ₽. Всё это допущения, а не данные; сравнение ведётся с 44,8 тыс. ₽ за место в ПНИ.</p>
+<figure data-fig="sens"><svg viewBox="0 0 640 330" role="img" aria-label="Стоимость жизни в квартире в зависимости от часов сопровождения" style="font-family:var(--f-ui, 'Golos Text', sans-serif);font-size:12px"><line x1="50" x2="626" y1="284.0" y2="284.0" class="k-grid"/><text x="44.0" y="288.0" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">0</text><line x1="50" x2="626" y1="231.6" y2="231.6" class="k-grid"/><text x="44.0" y="235.6" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">30</text><line x1="50" x2="626" y1="179.2" y2="179.2" class="k-grid"/><text x="44.0" y="183.2" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">60</text><line x1="50" x2="626" y1="126.8" y2="126.8" class="k-grid"/><text x="44.0" y="130.8" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">90</text><line x1="50" x2="626" y1="74.4" y2="74.4" class="k-grid"/><text x="44.0" y="78.4" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">120</text><line x1="50" x2="626" y1="22.0" y2="22.0" class="k-grid"/><text x="44.0" y="26.0" font-size="10.5" text-anchor="end" font-weight="400" class="k-mute">150</text><text x="50.0" y="302.0" font-size="10.5" text-anchor="middle" font-weight="400" class="k-mute">0</text><text x="165.2" y="302.0" font-size="10.5" text-anchor="middle" font-weight="400" class="k-mute">8</text><text x="280.4" y="302.0" font-size="10.5" text-anchor="middle" font-weight="400" class="k-mute">16</text><text x="395.6" y="302.0" font-size="10.5" text-anchor="middle" font-weight="400" class="k-mute">24</text><text x="510.8" y="302.0" font-size="10.5" text-anchor="middle" font-weight="400" class="k-mute">32</text><text x="626.0" y="302.0" font-size="10.5" text-anchor="middle" font-weight="400" class="k-mute">40</text><text x="345.0" y="320.0" font-size="11" text-anchor="middle" font-weight="400" class="k-mute">часов сопровождения в неделю на человека</text><text x="50.0" y="12.0" font-size="10.5" text-anchor="start" font-weight="400" class="k-mute">тыс. ₽ в месяц</text><line x1="50.0" y1="245.6" x2="626.0" y2="139.6" class="s2-line" stroke-width="2.4"/><text x="622.0" y="132.6" font-size="11" text-anchor="end" font-weight="600" class="s2-text">оптимистично</text><line x1="50.0" y1="231.6" x2="626.0" y2="87.8" class="s1-line" stroke-width="2.4"/><text x="622.0" y="80.8" font-size="11" text-anchor="end" font-weight="600" class="s1-text">база</text><line x1="50.0" y1="217.6" x2="626.0" y2="36.0" class="s5-line" stroke-width="2.4"/><text x="622.0" y="29.0" font-size="11" text-anchor="end" font-weight="600" class="s5-text">пессимистично</text><line x1="50" x2="626" y1="205.7" y2="205.7" class="k-inkline" stroke-dasharray="5 4" stroke-width="1.6"/><text x="56.0" y="199.7" font-size="11" text-anchor="start" font-weight="600" class="k-ink">место в ПНИ, 44,8</text><line x1="50" x2="626" y1="191.6" y2="191.6" class="s4-line" stroke-dasharray="2 4" stroke-width="1.6"/><text x="620.0" y="207.6" font-size="11" text-anchor="end" font-weight="600" class="s4-text">сопровождаемое проживание, 52,9</text></svg><figcaption>Рисунок 7.1. Полная стоимость жизни в квартире в зависимости от часов сопровождения (модель автора) на фоне оценок ВШЭ.</figcaption></figure>
+<div class="tbl"><table>
+<caption>Таблица 7.2. Стоимость жизни в квартире, тыс. ₽ в месяц на человека (ПНИ — 44,8)</caption>
+<tr><th>Часов в неделю</th><th class="n">Оптимистично</th><th class="n">База</th><th class="n">Пессимистично</th></tr>
+<tr><td>6</td><td class="n">31,1</td><td class="n">42,4</td><td class="n">53,6</td></tr>
+<tr><td>12</td><td class="n">40,2</td><td class="n">54,7</td><td class="n">69,2</td></tr>
+<tr><td>24</td><td class="n">58,4</td><td class="n">79,4</td><td class="n">100,4</td></tr>
+<tr><td>40</td><td class="n">82,7</td><td class="n">112,3</td><td class="n">142,0</td></tr>
+<tr><td><b>Точка безубыточности</b></td><td class="n">15 ч</td><td class="n">7 ч</td><td class="n">3 ч</td></tr>
+</table></div>
+<aside class="note warn"><p class="note-t">Как читать эту таблицу</p>
+<p>Таблица не предсказывает цены, она показывает чувствительность. При дешёвом жилье и недорогом часе сопровождение до пятнадцати часов в неделю обходится дешевле места в интернате; при дорогом — не дешевле даже на трёх часах. Знак разницы зависит от двух чисел, которые есть у каждого региона: тарифа часа и стоимости жилья.</p>
+<p>Модель считает сопровождение индивидуальным. В квартире на трёх–четырёх человек часть времени специалиста делится между жильцами, а ночное дежурство одно на всех; это снижает цену, но в модель не заложено. Для сравнения: в проектах, изученных ВШЭ, на человека приходилось 8,2 оплаченного часа в сутки, то есть почти 57 часов в неделю <a class="ref" href="#src-1">[1]</a>. Это люди с высокой потребностью, и для них квартира не дешевле интерната.</p></aside>
+
+<h3>Условный регион N</h3>
+<p>Возьмём интернат на 400 мест. Его годовые текущие расходы — 400 × 44,8 тыс. ₽ × 12 = 215 млн ₽. Допустим, что, как в Нижегородской области, у каждого пятого жителя — 80 человек — потребность не превышает двенадцати часов в неделю. Это допущение для иллюстрации; долю нужно измерить.</p>
+<div class="tbl"><table>
+<caption>Таблица 7.3. Перевод 80 человек с лёгкой потребностью в квартиры: разница с ПНИ, млн ₽ в год</caption>
+<tr><th>Допущение</th><th class="n">Квартира, тыс. ₽ в месяц</th><th class="n">Разница на 80 человек</th></tr>
+<tr><td>Оптимистично: 350 ₽ в час, жильё и быт 22 тыс.</td><td class="n">40,2</td><td class="n">−4,4</td></tr>
+<tr><td>База: 475 ₽, 30 тыс.</td><td class="n">54,7</td><td class="n">+9,5</td></tr>
+<tr><td>Пессимистично: 600 ₽, 38 тыс.</td><td class="n">69,2</td><td class="n">+23,4</td></tr>
+</table></div>
+<p>Если перевести ещё сто человек, доведя долю до 45 %, в групповое сопровождаемое проживание по средней цене ВШЭ, это добавит 9,7 млн ₽ в год к стоимости их мест в интернате; по столичной цене — 80,5 млн ₽.</p>
+<aside class="note"><p class="note-t">Что показывает расчёт</p>
+<ul>
+<li>Экономия от перехода не гарантирована. Она возможна при дешёвом жилье, недорогом часе и действительно лёгкой потребности.</li>
+<li>Если освободившиеся места тут же займут люди из очереди — а заполненность интернатов 98,6 % и в очереди тысячи человек <a class="ref" href="#src-3">[3]</a>, — общие расходы не снизятся. Реформа тогда увеличит охват, а не уменьшит бюджет. Для людей это хорошая новость; Минфину её нужно сообщить заранее.</li>
+<li>Переходный фонд на годы двойного финансирования закладывается обязательно <a class="ref" href="#src-24">[24]</a>.</li>
+</ul></aside>
+
+<h3>Что регион может посчитать сам</h3>
+<ol>
+<li>Полную стоимость места в своём интернате, включая питание, медицину, коммунальные услуги, управление и капитальный ремонт.</li>
+<li>Распределение жителей по часам потребности — по итогам обследования.</li>
+<li>Тариф часа сопровождения: зарплата специалиста с налогами, дорога, администрирование.</li>
+<li>Стоимость аренды или социального найма квартиры на трёх–четырёх человек.</li>
+<li>Размер платы жителя в интернате и в квартире.</li>
+<li>Переходный фонд: оплаченные места плюс уже открытые квартиры.</li>
+</ol>
+
+<h3>Где искать деньги</h3>
+<div class="tbl"><table>
+<tr><th style="width:30%">Механизм</th><th>Пример</th><th style="width:32%">Оговорка</th></tr>
+<tr><td>Перенос части бюджета со статьи интерната на статью сопровождения</td><td>Бразилия: внебольничные расходы превысили больничные с 2006 года <a class="ref" href="#src-48">[48]</a></td><td>Работает, если места действительно сокращаются</td></tr>
+<tr><td>Дополнительный перечень социальных услуг</td><td>Ленинградская область, 14 услуг <a class="ref" href="#src-8">[8]</a></td><td>Услуга вне перечня не финансируется</td></tr>
+<tr><td>Субсидия работодателю</td><td>Ленинградская область, до 500 тыс. ₽ <a class="ref" href="#src-8">[8]</a></td><td>Из существующих программ занятости</td></tr>
+<tr><td>Внебюджетные деньги под результат</td><td>ВЭБ.РФ в Челябинской области и Якутии <a class="ref" href="#src-20">[20, 21]</a>; Golden Lane Housing в Англии <a class="ref" href="#src-35">[35]</a></td><td>Итоги российских проектов пока не опубликованы</td></tr>
+<tr><td>Федеральные субсидии</td><td>«Доступная среда», с 2019 года <a class="ref" href="#src-8">[8]</a></td><td>Объём доступа нужно уточнять</td></tr>
+</table></div>
+</section>
+
+
+<section class="part" id="part-8">
+<p class="eyebrow">Часть восьмая</p>
+<h2>План для региона</h2>
+<p class="lede">Ничего из сказанного выше не требует ждать нового федерального закона. Требуется последовательность: сначала узнать людей, потом посчитать, потом написать правила и только потом переселять.</p>
+
+<h3>Пять шагов</h3>
+<div class="tbl"><table>
+<tr><th style="width:22%">Шаг</th><th>Содержание</th><th style="width:18%">Срок</th></tr>
+<tr><td><b>1. Обследование</b></td><td>Междисциплинарная оценка всех жителей: потребность в часах, навыки, жильё, семья, правовой статус. Разделение на когорты — лёгкую (до двенадцати часов в неделю), среднюю и тяжёлую. Образец — нижегородский <a class="ref" href="#src-8">[8]</a>.</td><td>3–6 месяцев</td></tr>
+<tr><td><b>2. Расчёт</b></td><td>Таблицы седьмой части на собственных тарифах. Решение о судьбе освободившихся мест. Размер переходного фонда.</td><td>1–2 месяца</td></tr>
+<tr><td><b>3. Правила</b></td><td>Региональный порядок сопровождаемого проживания в развитие постановления № 910 и приказа № 85, перечень услуг, норматив «на человека», порядок учебных квартир, субсидия работодателям, стандарт сопровождения выпускников <a class="ref" href="#src-12">[12, 13, 19]</a>.</td><td>6–12 месяцев</td></tr>
+<tr><td><b>4. Первая волна</b></td><td>Пятнадцать–тридцать человек из лёгкой когорты; учебная квартира как ступенька к постоянной; первые рабочие места.</td><td>1–2 год</td></tr>
+<tr><td><b>5. Масштаб</b></td><td>Перепрофилирование корпусов в малые дома, жилищный фонд, кейс-менеджеры, целевые значения размера групп и числа людей за пределами интерната.</td><td>2–5 год</td></tr>
+</table></div>
+
+<h3>Что можно сделать без новых денег</h3>
+<ol>
+<li>Назначить ответственного за сопровождаемое проживание на уровне заместителя руководителя и дать ему календарь, а не поручение «в нагрузку».</li>
+<li>Открыть интернат для внешних глаз: дни семей, волонтёры, независимые визиты, публичная страница.</li>
+<li>Расселить жителей по укладу жизни и дружбе, а не только по диагнозам, — в тех комнатах, что уже есть.</li>
+<li>Заменить часть обслуживания обучением: готовка, деньги, транспорт.</li>
+<li>Включить в обследование вопрос о восстановлении дееспособности.</li>
+<li>Найти первую квартиру: муниципальный фонд, служебное жильё, социальный наём.</li>
+<li>Запросить готовые документы у Нижегородской и Ленинградской областей, Москвы и Петербурга, а не писать свои с нуля.</li>
+<li>Закрепить в договорах право семей на посещения и информацию.</li>
+</ol>
+
+<h3>Шесть вопросов, которые стоит задать себе до начала</h3>
+<ul>
+<li>Что будет с освободившимися местами: мы их закроем или заполним из очереди?</li>
+<li>Кто будет отвечать за человека за пределами интерната, если опекуном остаётся директор?</li>
+<li>Какой размер группы мы считаем нормой и почему?</li>
+<li>Что мы будем мерить: число переведённых или то, как они живут через год?</li>
+<li>Что подхватит расходы на третий год, когда закончится пилот?</li>
+<li>Кто со стороны видит, что происходит внутри?</li>
+</ul>
+
+<h3>Как мерить результат</h3>
+<div class="tbl"><table>
+<tr><th style="width:38%">Показатель</th><th>Как считать</th></tr>
+<tr><td>Люди за пределами интерната через год</td><td>Только постоянное проживание, без учебного</td></tr>
+<tr><td>Возвраты</td><td>Доля вернувшихся в интернат за первый и второй годы</td></tr>
+<tr><td>Качество жизни</td><td>Индекс по методике ВШЭ до переезда и после</td></tr>
+<tr><td>Полная стоимость на человека</td><td>Включая жильё и быт, а не только сопровождение</td></tr>
+<tr><td>Размер групп</td><td>Среднее и максимум по квартирам</td></tr>
+<tr><td>Работа</td><td>На открытом рынке, а не в мастерской при учреждении</td></tr>
+<tr><td>Безопасность</td><td>Вызовы скорой, экстренные госпитализации, жалобы, смерти</td></tr>
+</table></div>
+
+<p class="coda">Мир за полвека прошёл путь от острова Лерос до маленьких домов, где люди сами решают, что приготовить на ужин. Он заплатил за этот путь ошибками, которые нам не обязательно повторять. Российские регионы уже сделали первые шаги. Следующие зависят не столько от размера бюджета, сколько от того, захотим ли мы узнать каждого жителя интерната по имени и посчитать, сколько на самом деле стоит его жизнь.</p>
+</section>
+
+
+<section class="appx" id="appx-a">
+<p class="eyebrow">Приложение А</p>
+<h2>Словарь</h2>
+<div class="tbl"><table>
+<tr><th style="width:30%">Термин</th><th>Значение</th></tr>
+<tr><td>Долговременный уход</td><td>Помощь людям, которые из-за состояния здоровья не справляются с повседневной жизнью: еда, гигиена, жильё, передвижение, общение.</td></tr>
+<tr><td>Деинституционализация</td><td>Переход от больших учреждений к жизни в обычном жилье с поддержкой. Не закрытие здания, а перенос помощи к человеку.</td></tr>
+<tr><td>Сопровождаемое проживание</td><td>Российская форма поддержки жизни в квартире или малой группе по индивидуальному плану (статья 9.1 закона № 181-ФЗ).</td></tr>
+<tr><td>Учебное проживание</td><td>Временное обучение навыкам самостоятельной жизни, часто на территории интерната.</td></tr>
+<tr><td>Housing First</td><td>«Сначала жильё»: постоянная квартира без предварительных условий, поддержка приходит следом.</td></tr>
+<tr><td>Распределённая опека</td><td>Возможность иметь нескольких опекунов, а не только интернат. Законопроект отклонён в 2025 году.</td></tr>
+<tr><td>Двойное финансирование</td><td>Период, когда оплачиваются и старая, и новая системы; обычно несколько лет.</td></tr>
+<tr><td>Кейс-менеджер</td><td>Специалист, собирающий для человека пакет помощи из разных служб.</td></tr>
+<tr><td>Трансинституционализация</td><td>Мнимый выход: человек покидает интернат, но оказывается в другой закрытой структуре — тюрьме, ночлежке, частном пансионе без контроля.</td></tr>
+<tr><td>СДУ</td><td>Система долговременного ухода для пожилых и людей с инвалидностью.</td></tr>
+<tr><td>OPEX и CAPEX</td><td>Текущие (операционные) и капитальные затраты. Путаница между ними стала главной ошибкой первой версии доклада.</td></tr>
+</table></div>
+</section>
+
+<section class="appx" id="appx-b">
+<p class="eyebrow">Приложение Б</p>
+<h2>Журнал исправлений</h2>
+<p>Что изменено по сравнению с предыдущими версиями и почему.</p>
+<div class="tbl"><table>
+<tr><th style="width:5%">№</th><th style="width:40%">Было</th><th>Стало</th></tr>
+<tr><td>1</td><td>ПНИ стоит 8–24 тыс. ₽ в месяц, сопровождаемое проживание — 2–6 тыс. ₽, «в четыре раза дешевле»</td><td>По первоисточнику ВШЭ это капитальные затраты в пересчёте на месяц; текущие — 44,8 и 52,9 тыс. ₽. Вывод снят.</td></tr>
+<tr><td>2</td><td>Регион N: экономия 35–38 %; «датская норма снимает дилемму»</td><td>Расчёт опирался на неверную базу; передача пенсии человеку не уменьшает полную стоимость. Заменено моделью чувствительности.</td></tr>
+<tr><td>3</td><td>В ПНИ 160–220 тыс. человек; потенциал 70–100 тыс.</td><td>139 тыс. (2024) по «Если быть точным»; более 174 тыс. по Минтруду с учётом отделений; потенциал около 63 тыс.</td></tr>
+<tr><td>4</td><td>Норма о 75 % — статья 31 закона № 442-ФЗ</td><td>Статья 32.</td></tr>
+<tr><td>5</td><td>Статья 9.1 действует с 2023 или 2024 года</td><td>С 1 сентября 2023 года (КонсультантПлюс).</td></tr>
+<tr><td>6</td><td>Цена часа 350–600 ₽ без опоры</td><td>Добавлен ориентир — московские тарифы 2026 года, 337–507 ₽.</td></tr>
+<tr><td>7</td><td>Германия: 63,3 млрд €, 5,6 млн получателей</td><td>Расходы 2025 года — 73,8 млрд €; получатели на конец 2023 года — 5,58 млн; доплата за дом престарелых — 3 245 € в месяц (январь 2026).</td></tr>
+<tr><td>8</td><td>Golden Lane Housing: 21 млн £, 62 объекта, 205 человек</td><td>Облигация 2014 года — 11 млн £, 30 домов, более ста человек; всего 83 млн £, 700 домов, 1 320 жильцов.</td></tr>
+<tr><td>9</td><td>Хогевейк: «меньше лекарств, жители активнее»</td><td>Независимых оценок нет (CADTH); утверждение снято.</td></tr>
+<tr><td>10</td><td>Финляндия — «единственная страна ЕС, где бездомность сокращается»</td><td>С 2024 года рост: 3 806 человек, затем 4 579 в 2025-м.</td></tr>
+<tr><td>11</td><td>Дания: охват 80+ с 43 % до 27 % (2020); Швеция: доступность мест с 20 % до 11 %</td><td>Дания по VIVE: с 43 % до 30 % (2019). Швеция: жителей домов престарелых со 118 тыс. до 90 тыс.</td></tr>
+<tr><td>12</td><td>Нидерланды сократили расходы на стационар на 8 % за год</td><td>Не подтверждено; снято. Добавлены оценка реформы SCP и рост расходов Wlz на 7,6 % в 2025 году.</td></tr>
+<tr><td>13</td><td>Бразилия: 24,8 % → 79,4 %</td><td>Подтверждено другое: 95,5 % → 49 % (1995–2005) и перевес внебольничных расходов с 2006 года.</td></tr>
+<tr><td>14</td><td>Россия: 0,1–0,2 % ВВП на долговременный уход</td><td>Заменено прозрачным расчётом только для ПНИ — около 0,04 % ВВП.</td></tr>
+<tr><td>15</td><td>Челябинская область: проект ВЭБ.РФ и РМК, 16 и 8 человек</td><td>Подтверждён проект ВЭБ.РФ с целевым значением 12 получателей; участие РМК и итоговые цифры не подтверждены.</td></tr>
+<tr><td>16</td><td>Опечатки и сбои текста, лозунги</td><td>Текст переписан целиком.</td></tr>
+</table></div>
+</section>
+
+<section class="appx" id="appx-v">
+<p class="eyebrow">Приложение В</p>
+<h2>Что не удалось подтвердить</h2>
+<p>Эти утверждения встречались в прежних версиях, но в этой редакции подтверждения не найдено, и в основной текст они не вошли. Это не значит, что они ложны; это значит, что перед использованием нужен первоисточник.</p>
+<ul>
+<li>Тюменская область: дорожная карта 2020–2024 годов, «3D-квартира», рост охвата с 65 до 75 человек.</li>
+<li>ХМАО: модельная программа сопровождаемого проживания в Излучинском доме-интернате для возраста 18–55 лет (само учреждение — ПНИ на 90 мест — существует).</li>
+<li>Курганская область: отделение на 14 мест при Галишевском ПНИ.</li>
+<li>ЯНАО: постановление № 1064-П (2021).</li>
+<li>Москва: сокращение коечного фонда со 118 до 62 на 100 тысяч.</li>
+<li>Челябинская область: участие РМК; 16 человек на самостоятельном проживании и 8 в семьях.</li>
+<li>Свердловская область: пекарня при доме в Верх-Нейвинском.</li>
+<li>США: «31 000 $ за год в тюрьме против 10 000 $ в сообществе»; «650 млн $ в Техасе».</li>
+<li>Греция: суммы в драхмах и доли довольных жителей после реформы на Леросе; число пациентов (1 200).</li>
+<li>Приказ Минтруда № 85: балльная шкала 23–272 балла и четыре степени нарушения автономии.</li>
+<li>Дата и номер постановления об исключении заработной платы из расчёта дохода жителей интернатов.</li>
+</ul>
+</section>
+
+<section class="appx" id="appx-g">
+<p class="eyebrow">Приложение Г</p>
+<h2>Источники</h2>
+<ol class="src">
+<li id="src-1">Синявская О. В., Селезнева Е. В., Якушев Е. Л., Горват Е. С. Разработка финансово-экономической модели сопровождаемого проживания граждан с ментальной инвалидностью и её сравнение с ПНИ. Институт социальной политики НИУ ВШЭ, 2022. <a href="https://hse.ru/data/2022/02/22/1749114966/01_Sinyavskaya_ISP_Wrokshop_22-02-2022_RU.pdf">hse.ru</a></li>
+<li id="src-2">АСИ, 22.12.2022. Развитие сопровождаемого проживания не только гуманно, но и экономически выгодно. <a href="https://asi.org.ru/news/2022/12/22/soprovozhdaemoe-prozhivanie-nenamnogo-dorozhe-prozhivaniya-cheloveka-v-internate-issledovanie/">asi.org.ru</a></li>
+<li id="src-3">«Если быть точным». Как устроены ПНИ в России. <a href="https://tochno.st/materials/kak-ustroeny-pni-v-rossii-issledovanie-esli-byt-tocnym">tochno.st</a></li>
+<li id="src-4">«Ведомости», 10.04.2026. Психоневрологических интернатов за три года стало на 13 % меньше. <a href="https://www.vedomosti.ru/society/articles/2026/04/10/1189295-psihonevrologicheskih-internatov-stalo-menshe">vedomosti.ru</a></li>
+<li id="src-5">«Медуза», 14.04.2026, совместно с «Если быть точным». <a href="https://meduza.io/feature/2026/04/14/psihonevrologicheskie-internaty-zavedeniya-v-kotoryh-patsienty-regulyarno-podvergayutsya-nasiliyu-ot-nih-izbavlyayutsya-po-vsemu-miru-no-v-rossii-reforma-buksuet-uzhe-10-let">meduza.io</a></li>
+<li id="src-6">Vademec, 10.04.2026. Программа сопровождаемого проживания охватывает менее 1,8 тысячи человек. <a href="https://www.vademec.ru/news/2026/04/10/analitiki-programma-soprovozhdaemogo-prozhivaniya-v-rf-okhvatyvaet-menee-1-8-tysyachi-chelovek/">vademec.ru</a></li>
+<li id="src-7">«Известия», 24.05.2026. Эксперт объяснил выгоду сопровождаемого проживания по сравнению с ПНИ. <a href="https://iz.ru/2102182/2026-05-24/ekspert-obiasnil-vygodu-soprovozhdaemogo-prozhivaniia-po-sravneniiu-s-pni">iz.ru</a></li>
+<li id="src-8">АСИ, 18.11.2024. Сопровождаемое проживание: опыт регионов и точки роста. <a href="https://asi.org.ru/2024/11/18/soprovozhdaemoe-prozhivanie-opyt-regionov-i-tochki-rosta/">asi.org.ru</a></li>
+<li id="src-9">АСИ, 21.07.2026. Долговременным уходом охвачено 11 % пожилых и людей с инвалидностью. <a href="https://asi.org.ru/news/2026/07/21/v-rossii-dolgovremennym-uhodom-ohvacheno-11-pozhilyh-i-lyudej-s-invalidnostyu-mintrud/">asi.org.ru</a></li>
+<li id="src-10">«Ведомости», 20.07.2026. Только 11 % нуждающихся охвачены уходом. <a href="https://www.vedomosti.ru/society/articles/2026/07/20/1214844-tolko-11-nuzhdayuschihsya-pozhilih-lyudei-i-invalidov-ohvacheni-uhodom">vedomosti.ru</a></li>
+<li id="src-11">Федеральный закон от 28.04.2023 № 137-ФЗ; статья 3 вступает в силу с 01.09.2023. <a href="https://www.consultant.ru/document/cons_doc_LAW_445941/30b3f8c55f65557c253227a65b908cc075ce114a/">consultant.ru</a></li>
+<li id="src-12">Постановление Правительства РФ от 03.07.2024 № 910. <a href="https://normativ.kontur.ru/document?documentId=473989&amp;moduleId=1">normativ.kontur.ru</a></li>
+<li id="src-13">Приказ Минтруда России от 25.02.2025 № 85. <a href="https://ppt.ru/obzory/vstupaet-v-silu/prikaz-mintruda-rossii-25-02-2025-85">ppt.ru</a></li>
+<li id="src-14">Федеральный закон от 28.12.2013 № 442-ФЗ «Об основах социального обслуживания граждан», статья 32. <a href="https://vladimir.social33.ru/upload/medialibrary/dd4/FZ-442-2019.pdf">текст закона</a></li>
+<li id="src-15">Vademec, 14.02.2025. Госдума отклонила законопроект о распределённой опеке. <a href="https://vademec.ru/news/2025/02/14/gosduma-spustya-9-let-posle-pervogo-chteniya-otklonila-zakonoproekt-o-raspredelennoy-opeke-nad-posto/">vademec.ru</a></li>
+<li id="src-16">«Парламентская газета». Работающие в интернатах инвалиды смогут сохранить больше доходов. <a href="https://www.pnp.ru/social/rabotayushhie-v-internatakh-invalidy-smogut-sokhranit-bolshe-dokhodov.html">pnp.ru</a></li>
+<li id="src-17">E1.ru, 08.02.2021. В уральском посёлке обустроят дом для людей из интернатов. <a href="https://www.e1.ru/text/gorod/2021/02/08/69754799/">e1.ru</a></li>
+<li id="src-18">Департамент труда и социальной защиты Москвы, 30.11.2022. Сопровождаемое проживание. <a href="https://www.mos.ru/news/item/116663073/">mos.ru</a></li>
+<li id="src-19">АСИ, 25.09.2026. «Перспективы» предложили стандарт сопровождения выпускников ПНИ. <a href="https://asi.org.ru/news/2026/09/25/perspektivy-predlozhili-edinyi-standart-soprovozhdeniya-vypusknikov-pni/">asi.org.ru</a></li>
+<li id="src-20">ВЭБ.РФ. Проект в сфере сопровождаемого проживания, реализуемый в Челябинской области; отчёт о мониторинге. <a href="https://veb.ru/agent-pravitelstva/proekty-socialnogo-vozdejstviya/socialnye-proekty/project-05/">veb.ru</a></li>
+<li id="src-21">ГАООРДИ. В Якутии создадут отделение сопровождаемого проживания. <a href="https://vk.ru/@gaoordi-v-yakutii-pri-podderzhke-gaoordi-sozdadut-otdelenie-soprovoz">vk.ru</a></li>
+<li id="src-22">ГБУ «Московская служба помощи». Тарифы на социальные услуги (приказ от 09.02.2026). <a href="https://msp.dszn.ru/servises/tarify-na-socialnye-uslugi">msp.dszn.ru</a></li>
+<li id="src-23">«Новострой». Топилин: для инвалидов и пожилых больше не будут строить казармы. <a href="https://www.novostroy.ru/news/market/maksim-topilin-dlya-invalidov-i-pozhilykh-bolshe-ne-budut-stroit-kazarmy/">novostroy.ru</a></li>
+<li id="src-24">Mansell J., Knapp M., Beadle-Brown J., Beecham J. Deinstitutionalisation and community living — outcomes and costs. Tizard Centre, University of Kent, 2007. <a href="https://research.kent.ac.uk/tizard/2019/06/11/deinstitutionalisation-and-community-living-outcomes-and-costs/">research.kent.ac.uk</a></li>
+<li id="src-25">May P. et al. Effect of deinstitutionalisation for adults with intellectual disabilities on costs: a systematic review. BMJ Open, 2019. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6756329">PMC6756329</a></li>
+<li id="src-26">ENIL. EU Funds for Our Rights; брифинг 2018 года и теневой доклад 2025 года. <a href="https://enil.eu/eu-funds-for-our-rights-may-update/">enil.eu</a></li>
+<li id="src-27">Комитет ООН по правам инвалидов. Guidelines on deinstitutionalization, including in emergencies, 2022. <a href="https://digitallibrary.un.org/record/3990185">digitallibrary.un.org</a></li>
+<li id="src-28">OECD. Health at a Glance 2023: long-term care spending and unit costs. <a href="https://www.oecd.org/en/publications/2023/11/health-at-a-glance-2023_e04f8239/full-report/long-term-care-spending-and-unit-costs_cc989a20.html">oecd.org</a></li>
+<li id="src-29">GKV-Spitzenverband / dpa, 01.03.2026. Pflegeversicherung 2025; NWB о ставке взноса с 2025 года. <a href="https://www.gkv-spitzenverband.de/media/dokumente/presse/pressemitteilungen/2026/20260301_dpa_Pflegeversicherung.pdf">gkv-spitzenverband.de</a></li>
+<li id="src-30">vdek, 22.01.2026. Eigenanteile in der stationären Pflege. <a href="https://www.vdek.com/presse/pressemitteilungen/2026/eigenanteile-pflegeheim-auswertung/_jcr_content/par/download/file.res/vdek_pm_20260122_Eigenanteile_Pflege.pdf">vdek.com</a></li>
+<li id="src-31">Bundesministerium für Gesundheit. Zahlen und Fakten zur Pflegeversicherung (13.02.2025). <a href="https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/Statistiken/Pflegeversicherung/Zahlen_und_Fakten/Zahlen-Fakten_Pflegeversicherung.pdf">bundesgesundheitsministerium.de</a></li>
+<li id="src-32">DHSC. Adult social care finance report, England: 2024 to 2025. <a href="https://www.gov.uk/government/statistics/adult-social-care-finance-report-england-2024-to-2025/adult-social-care-finance-report-england-2024-to-2025">gov.uk</a></li>
+<li id="src-33">NHS England. Learning disability services statistics, Assuring Transformation, July 2026. <a href="https://digital.nhs.uk/data-and-information/publications/statistical/learning-disability-services-statistics/at-july-2026-mhsds-june-2026/summary-report---at">digital.nhs.uk</a></li>
+<li id="src-34">Mencap, Housing LIN. Funding supported housing for all (2018), в изложении Campbell Tickell для парламента. <a href="https://committees.parliament.uk/writtenevidence/43344/html/">parliament.uk</a></li>
+<li id="src-35">Good Finance. Golden Lane Housing; Learning Disability Today. <a href="https://www.goodfinance.org.uk/case-studies/golden-lane-housing">goodfinance.org.uk</a></li>
+<li id="src-36">CADTH. Dementia Villages: Innovative Residential Care for People with Dementia, 2020. <a href="https://www.cadth.ca:443/sites/default/files/pdf/in_brief_dementia_villages_innovative_residential_care_for_people_with_dementia.pdf">cadth.ca</a></li>
+<li id="src-37">Hogeweyk: Wikipedia; Quartz «The Dutch village where everyone has dementia». <a href="https://en.wikipedia.org/wiki/Hogeweyk">wikipedia.org</a>; <a href="https://qz.com/297706/the-dutch-village-where-everyone-has-dementia">qz.com</a></li>
+<li id="src-38">Nippon.com. Expenditures on Nursing Care in Japan Reach ¥11.5 Trillion. <a href="https://www.nippon.com/en/japan-data/h02170/">nippon.com</a></li>
+<li id="src-39">Mental Health Care in Japan: Balancing Care in Hospitals and in the Community (данные MHLW). <a href="https://www.mjphm.org.my/health/mental-health/">mjphm.org.my</a></li>
+<li id="src-40">KEIA. Improving Korea's Long-Term Care for the Elderly; LTCcovid, Republic of Korea. <a href="https://keia.org/analysis/improving-koreas-long-term-care-for-the-elderly/">keia.org</a></li>
+<li id="src-41">Australian Senate. Report of mental health services observed in Trieste, 2006; Mezzina R., 2012. <a href="https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Former_Committees/mentalhealth/report/e03">aph.gov.au</a></li>
+<li id="src-42">Social cooperative (Wikipedia, по данным ISTAT); ETF, Social Economy, 2025. <a href="https://en.wikipedia.org/wiki/Social_cooperative">wikipedia.org</a></li>
+<li id="src-43">Y-Säätiö, 10.02.2025. Homelessness on the rise in Finland; Y-Säätiö и Yle о данных за 2025 год. <a href="https://ysaatio.fi/en/homelessness-on-the-rise-in-finland/">ysaatio.fi</a>; <a href="https://ysaatio.fi/en/housing-first/homelessness-in-finland/">ysaatio.fi</a></li>
+<li id="src-44">Homelessness in Finland (Wikipedia); CBC Radio. <a href="https://en.wikipedia.org/wiki/Homelessness_in_Finland">wikipedia.org</a></li>
+<li id="src-45">Mental Health Commission of Canada. At Home/Chez Soi. <a href="https://mentalhealthcommission.ca/wp-content/uploads/2021/09/At2520Home2520Final2520Report2520-2520Exec2520Summary2520-2520ENG_0.pdf">mentalhealthcommission.ca</a></li>
+<li id="src-46">VIVE. VIVEs kommunetal 2020.5: Færre hjemmehjælpstimer til ældre. <a href="https://www.vive.dk/da/udgivelser/vives-kommunetal-20205-faerre-hjemmehjaelpstimer-til-aeldre-isaer-uden-for-hovedstadsomraadet-15076">vive.dk</a></li>
+<li id="src-47">Sveriges Radio. Home care focus sparks dramatic cut in elderly home facilities. <a href="https://www.sverigesradio.se/artikel/home-care-focus-sparks-dramatic-cut-in-elderly-home-facilities">sverigesradio.se</a></li>
+<li id="src-48">Cadernos de Saúde Pública; Ciência &amp; Saúde Coletiva; Correio Braziliense, 18.01.2026 (по данным Saúde Mental em Dados). <a href="https://scielo.br/j/csp/a/LKMxbhKYbPHqP8snJjHwsLQ/?lang=en">scielo.br</a>; <a href="https://edicao.correiobraziliense.com.br/correiobraziliense/2026/01/18/140269/pdf/A13-CID-1801-DIG.pdf">correiobraziliense.com.br</a></li>
+<li id="src-49">Treatment Advocacy Center. Serious Mental Illness Prevalence in Jails and Prisons. <a href="https://www.tac.org/reports_publications/serious-mental-illness-prevalence-in-jails-and-prisons/">tac.org</a></li>
+<li id="src-50">Leigh Day. Winterbourne View timeline since 2011. <a href="https://www.leighday.co.uk/media/fe5opksf/ld_winterbourne-view-timeline-since-2011-pdf.pdf">leighday.co.uk</a></li>
+<li id="src-51">Harper's Magazine, 2019. Out of Sight: Leros; Henderson J., Grove B. Leros — Escape into Life, 1999. <a href="https://harpers.org/2019/09/out-of-sight-leros-greece-asylum">harpers.org</a>; <a href="https://www.emerald.com/insight/content/doi/10.1108/13666282199900012/full/html">emerald.com</a></li>
+<li id="src-52">SCP. National evaluation of long-term care reforms in the Netherlands, 2018. <a href="https://english.scp.nl/documents/2018/06/27/summary-changing-care-and-support-for-people-with-disabilities">scp.nl</a></li>
+<li id="src-53">CBS, 2026. Spending on health care up by 6.1 percent in 2025. <a href="https://www.cbs.nl/en-gb/news/2026/26/spending-on-health-care-up-by-6-1-percent-in-2025">cbs.nl</a></li>
+</ol>
+</section>
+
+<section class="appx" id="appx-d">
+<p class="eyebrow">Приложение Д</p>
+<h2>Как повторить расчёты</h2>
+<p>Исходники доклада лежат в папке <code>report/src</code> репозитория <code>qlolp/seminar-mental-health-cost-2026</code>.</p>
+<ul>
+<li><code>calc.py</code> — все формулы и допущения в одном месте. Команда <code>python3 calc.py</code> печатает таблицы седьмой части; цену часа и стоимость жилья и быта можно поменять в начале файла.</li>
+<li><code>figures.py</code> строит графики из тех же чисел.</li>
+<li><code>content.html</code> — текст доклада; <code>build.py</code> собирает из него PDF и веб-версию.</li>
+</ul>
+</section>
+
+</div>
