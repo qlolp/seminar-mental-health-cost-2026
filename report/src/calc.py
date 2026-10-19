@@ -13,7 +13,26 @@ C_SP = 52.9           # тыс. ₽/мес, проекты сопровожда�
 C_SP_MSK = 111.9      # тыс. ₽/мес, то же в Москве (ВШЭ)
 WEEKS_PER_MONTH = 52 / 12
 
-GDP_2024 = 201_000          # млрд ₽, ВВП России 2024 (Росстат, округлённо)
+GDP_2024 = 201_000          # млрд ₽, ВВП России 2024 (Росстат, округлённо; источник в тексте доклада не сверялся)
+
+# ---- индексация цен (Банк России, годовая инфляция в декабре, % г/г; cbr.ru/hd_base/infl, прочитано 19.10.2026)
+CPI_DEC = {2020: 4.90, 2021: 8.39, 2022: 11.94, 2023: 7.42, 2024: 9.52, 2025: 5.59}
+
+
+def price_index(from_year, to_year=2025):
+    """Во сколько раз выросли цены с декабря from_year по декабрь to_year (по ИПЦ)."""
+    k = 1.0
+    for y in range(from_year + 1, to_year + 1):
+        k *= 1 + CPI_DEC[y] / 100
+    return k
+
+
+# ASSUMPTION: 44,8 — в ценах 2019 года (данные обследования НИИ труда 2019), 52,9 — в ценах 2021 года
+# (опрос проектов ВШЭ 2021). В презентации ВШЭ год цен не указан; если ВШЭ уже индексировала цифры,
+# индексация здесь завышает их.
+PNI_PRICE_YEAR, SP_PRICE_YEAR = 2019, 2021
+C_PNI_2025 = C_PNI * price_index(PNI_PRICE_YEAR)
+C_SP_2025 = C_SP * price_index(SP_PRICE_YEAR)
 
 # ---- допущения (ASSUMPTION)
 HOUR_PRICE = (350, 475, 600)     # ₽ за час сопровождения: низ / база / верх
@@ -26,9 +45,10 @@ def flat_cost(hours_per_week, hour_price, fixed):
     return support + fixed
 
 
-def breakeven_hours(hour_price, fixed):
+def breakeven_hours(hour_price, fixed, pni=None):
     """Сколько часов в неделю можно оплатить, чтобы уложиться в стоимость места в ПНИ."""
-    return (C_PNI - fixed) * 1000 / hour_price / WEEKS_PER_MONTH
+    pni = C_PNI if pni is None else pni
+    return (pni - fixed) * 1000 / hour_price / WEEKS_PER_MONTH
 
 
 def per_million():
@@ -43,7 +63,22 @@ def per_million():
     }
 
 
+def report_indexed():
+    print("\n== В ценах 2025 года (ИПЦ, Банк России)")
+    print(f"  индекс 2019→2025: {price_index(2019):.3f}; 2021→2025: {price_index(2021):.3f}")
+    print(f"  ПНИ: {C_PNI} → {C_PNI_2025:.1f} тыс. ₽/мес; СП: {C_SP} → {C_SP_2025:.1f}; столица: {C_SP_MSK} → {C_SP_MSK*price_index(2021):.1f}")
+    print("  точка безубыточности, ч/нед (оптимист / база / пессимист):",
+          [round(breakeven_hours(p, f, C_PNI_2025), 1) for p, f in ((350, 22), (475, 30), (600, 38))])
+    light = 80
+    for name, p, f in (("оптимист", 350, 22), ("база", 475, 30), ("пессимист", 600, 38)):
+        c = flat_cost(12, p, f)
+        print(f"  {name}: квартира {c:.1f}; разница на {light} чел. {light*(c-C_PNI_2025)*12/1000:+.1f} млн ₽/год")
+    print(f"  регион N: 400 × {C_PNI_2025:.1f} × 12 = {400*C_PNI_2025*12/1000:.1f} млн ₽/год")
+    print(f"  1 млн ₽: {1000/(C_PNI_2025*12):.2f} места в ПНИ; {1000/(C_SP_2025*12):.2f} чел. в СП")
+
+
 if __name__ == "__main__":
+    report_indexed()
     print("== 1 млн ₽ в год покупает")
     for k, v in per_million().items():
         print(f"  {k}: {v:,.2f}")
