@@ -130,7 +130,7 @@ def fig_ltc():
         ("Среднее по ОЭСР", 1.8, "s2", "1,8"),
         ("Республика Корея (2019)", 1.0, "s3", "≈1,0"),
         ("Греция, Польша, Латвия", 0.5, "s3", "≤0,5"),
-        ("Россия, только ПНИ (оценка)", 0.04, "s4", "≈0,04"),
+        ("Россия, только ПНИ (оценка)", 0.04, "s4", "≈0,04–0,06", 0.06),
     ], 5.2, "Расходы на долговременный уход, процент ВВП", label_w=250,
         note="% ВВП, 2021, если не указано иное. ОЭСР; Корея — KEIA/LTCcovid; Россия — расчёт автора, только ПНИ.")
 
@@ -163,7 +163,9 @@ def fig_sens():
               f'y2="{Y(calc.flat_cost(40, p, f)):.1f}" class="{cls}-line" stroke-width="2.4"/>')
         s += text(X(40) - 4, Y(calc.flat_cost(40, p, f)) - 7, name, 11, "end", f"{cls}-text", 600)
     s += f'<line x1="{l}" x2="{w - 14}" y1="{Y(calc.C_PNI):.1f}" y2="{Y(calc.C_PNI):.1f}" class="k-inkline" stroke-dasharray="5 4" stroke-width="1.6"/>'
-    s += text(l + 6, Y(calc.C_PNI) - 6, "место в ПНИ, 44,8", 11, "start", weight=600)
+    s += text(l + 6, Y(calc.C_PNI) - 6, "место в ПНИ, 44,8 (как у ВШЭ)", 11, "start", weight=600)
+    s += f'<line x1="{l}" x2="{w - 14}" y1="{Y(calc.C_PNI_2025):.1f}" y2="{Y(calc.C_PNI_2025):.1f}" class="k-inkline" stroke-dasharray="1 3" stroke-width="1.6"/>'
+    s += text(l + 6, Y(calc.C_PNI_2025) - 6, f"место в ПНИ в ценах 2025 г., {calc.C_PNI_2025:.1f}".replace(".", ","), 11, "start", weight=600)
     s += f'<line x1="{l}" x2="{w - 14}" y1="{Y(calc.C_SP):.1f}" y2="{Y(calc.C_SP):.1f}" class="s4-line" stroke-dasharray="2 4" stroke-width="1.6"/>'
     s += text(w - 20, Y(calc.C_SP) + 16, "сопровождаемое проживание, 52,9", 11, "end", "s4-text", 600)
     return svg(w, h, s, "Стоимость жизни в квартире в зависимости от часов сопровождения")

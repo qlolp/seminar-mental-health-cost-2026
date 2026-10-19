@@ -13,6 +13,9 @@ import subprocess
 import figures
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+COVER_NOTE = ("<b>Редакция 4, октябрь 2026.</b> Текст переписан целиком; все данные заново сверены с источниками, "
+              "главные цифры — с первоисточником НИУ ВШЭ. Список изменений — в приложении Б.")
+WEB_META = "Редакция 4 · октябрь 2026 · 53 источника"
 TITLE = "Сколько стоит достойная жизнь"
 SUBTITLE = ("Реформа психоневрологических интернатов: сколько стоит месяц жизни человека в интернате и в квартире, "
             "что показал мировой опыт и что можно сделать в российском регионе на имеющиеся деньги")
@@ -124,8 +127,7 @@ a{{color:var(--accent)}}
     html = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>{TITLE}</title><style>{css}</style></head><body>
 <div class="cover"><div class="k">Семинар «Пространство Новых Идей 2.0» · Минтруд России · Санкт-Петербург, 25–27 августа 2026</div>
 <h1>{TITLE}</h1><p>{SUBTITLE}.</p><p>Доклад для руководителей организаций социального обслуживания и региональных министров.</p>
-<div class="foot"><b>Редакция 4, октябрь 2026.</b> Текст переписан целиком; все данные заново сверены с источниками,
-главные цифры — с первоисточником НИУ ВШЭ. Список изменений — в приложении Б.</div></div>
+<div class="foot">{COVER_NOTE}</div></div>
 <h2 style="margin-top:0">Содержание</h2><ul class="toc">{toc(body)}</ul>
 {body}</body></html>"""
     path = os.path.join(HERE, "report_print.html")
@@ -174,7 +176,7 @@ nav.toc span{{flex:0 0 9.5em;color:var(--mute);font-size:.78em;letter-spacing:.0
 <div class="k">Семинар «Пространство Новых Идей 2.0» · Минтруд России</div>
 <h1>{TITLE}</h1>
 <p>{SUBTITLE}.</p>
-<div class="meta">Редакция 4 · октябрь 2026 · 53 источника · <a href="https://github.com/qlolp/seminar-mental-health-cost-2026">исходники и PDF</a></div>
+<div class="meta">{WEB_META} · <a href="https://github.com/qlolp/seminar-mental-health-cost-2026">исходники и PDF</a></div>
 <nav class="toc" aria-label="Содержание"><ol>{toc(body)}</ol></nav>
 </header>
 {body}
